@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://duesteer.com";
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Duesteer";
+const SITE_DESCRIPTION = process.env.NEXT_PUBLIC_SITE_DESCRIPTION ?? "Recover overdue invoices with a clear process.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +78,9 @@ export default function RootLayout({
         <SpeedInsights />
         {children}
         <Analytics />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

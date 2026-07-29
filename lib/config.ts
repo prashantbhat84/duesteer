@@ -22,6 +22,16 @@ export const PRIVACY_EMAIL = "duesteer.app@gmail.com";
 
 export const SITE_NAME = "DueSteer";
 
+/**
+ * App icon shown beside the wordmark in the header and footer.
+ *
+ * NOTE: `public/brand/duesteer-icon.png` is not present in the repo. The file
+ * below is the same 1024×1024 app-icon artwork in vector form, so it is used
+ * instead (next/image serves .svg unoptimised automatically). If you add the
+ * PNG, just point this constant at it — nothing else needs to change.
+ */
+export const BRAND_ICON = "/brand/duesteer-logo.svg";
+
 export const SITE_DESCRIPTION =
   "DueSteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
 

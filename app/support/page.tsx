@@ -56,7 +56,7 @@ function mailto(subject: string) {
 export default function SupportPage() {
   return (
     <>
-      <Section as="section" muted className="pb-10">
+      <Section as="section" tone="muted" className="pb-10">
         <SectionHeading
           as="h1"
           eyebrow="Support"
@@ -76,12 +76,10 @@ export default function SupportPage() {
           {CARDS.map((card) => (
             <div
               key={card.title}
-              className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              className="flex h-full flex-col rounded-card border border-line bg-surface p-6 shadow-card"
             >
-              <h2 className="text-lg font-semibold text-slate-900">
-                {card.title}
-              </h2>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              <h2 className="text-lg font-semibold text-ink">{card.title}</h2>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-body">
                 {card.description}
               </p>
               <div className="mt-5">
@@ -94,12 +92,12 @@ export default function SupportPage() {
         </div>
       </Section>
 
-      <Section as="section" muted>
-        <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 className="text-xl font-semibold text-slate-900">
+      <Section as="section" tone="muted">
+        <div className="mx-auto max-w-2xl rounded-panel border border-line bg-surface p-8 shadow-card">
+          <h2 className="text-xl font-semibold text-ink">
             Billing is handled by Apple
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          <p className="mt-3 text-sm leading-relaxed text-body">
             DueSteer Premium subscriptions are purchased through the App Store,
             and all billing is managed by Apple. To view, change, or cancel your
             subscription, open the Settings app on your iOS device, tap your
@@ -107,7 +105,7 @@ export default function SupportPage() {
             handled by Apple. For anything DueSteer-specific, email us at{" "}
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
-              className="font-medium text-accent underline"
+              className="font-medium text-brand-strong underline decoration-brand-line underline-offset-2 hover:decoration-brand"
             >
               {SUPPORT_EMAIL}
             </a>

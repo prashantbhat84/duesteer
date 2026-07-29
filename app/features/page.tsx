@@ -3,8 +3,9 @@ import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import EscalationLadder from "@/components/EscalationLadder";
 import AppStoreButton from "@/components/AppStoreButton";
-import PhoneFrame, { ScreenshotPlaceholder } from "@/components/PhoneFrame";
+import AppScreenshot from "@/components/AppScreenshot";
 import { FeatureIcon } from "@/components/FeatureCard";
+import type { ScreenshotKey } from "@/lib/screenshots";
 
 export const metadata: Metadata = {
   title: "Features",
@@ -20,8 +21,8 @@ type FeatureSection = {
   icon: string;
   body: string;
   points: string[];
-  screen: "list" | "detail" | "email";
-  screenLabel: string;
+  /** Real app screenshot shown alongside this section (see lib/screenshots.ts). */
+  screen: ScreenshotKey;
 };
 
 const SECTIONS: FeatureSection[] = [
@@ -36,8 +37,7 @@ const SECTIONS: FeatureSection[] = [
       "Sort and scan overdue invoices at a glance",
       "Add invoices manually — no bank or accounting connection needed",
     ],
-    screen: "list",
-    screenLabel: "DueSteer overdue invoice list with clear status labels",
+    screen: "invoiceList",
   },
   {
     id: "escalation",
@@ -50,8 +50,7 @@ const SECTIONS: FeatureSection[] = [
       "A recommended next step for each invoice",
       "Escalate at a measured, professional pace",
     ],
-    screen: "detail",
-    screenLabel: "DueSteer invoice detail showing the recommended next step",
+    screen: "escalation",
   },
   {
     id: "communication",
@@ -64,8 +63,7 @@ const SECTIONS: FeatureSection[] = [
       "Professional templates you can edit before sending",
       "You stay in control — nothing is sent automatically",
     ],
-    screen: "email",
-    screenLabel: "DueSteer generated follow-up email ready to review and send",
+    screen: "emailDraft",
   },
   {
     id: "disputes",
@@ -78,8 +76,7 @@ const SECTIONS: FeatureSection[] = [
       "Keep a record of what was disputed and when",
       "Track resolved disputes over time",
     ],
-    screen: "detail",
-    screenLabel: "DueSteer dispute status on an invoice",
+    screen: "invoiceDetail",
   },
   {
     id: "promises",
@@ -92,8 +89,7 @@ const SECTIONS: FeatureSection[] = [
       "Pause recovery until the promise is due",
       "Track broken payment promises",
     ],
-    screen: "detail",
-    screenLabel: "DueSteer payment promise logged on an invoice",
+    screen: "paymentPromise",
   },
   {
     id: "history",
@@ -106,8 +102,7 @@ const SECTIONS: FeatureSection[] = [
       "See resolved disputes and broken promises",
       "Understand what worked for next time",
     ],
-    screen: "list",
-    screenLabel: "DueSteer recovery history timeline for an invoice",
+    screen: "recoveryHistory",
   },
   {
     id: "notifications",
@@ -120,8 +115,7 @@ const SECTIONS: FeatureSection[] = [
       "Stay on top of follow-ups without a spreadsheet",
       "Reduce forgotten, aging invoices",
     ],
-    screen: "list",
-    screenLabel: "DueSteer reminder notification for a follow-up",
+    screen: "notifications",
   },
   {
     id: "pdf",
@@ -134,8 +128,7 @@ const SECTIONS: FeatureSection[] = [
       "Keep records for your own bookkeeping",
       "Share a clear summary when you need to",
     ],
-    screen: "email",
-    screenLabel: "DueSteer recovery history PDF export preview",
+    screen: "pdfReport",
   },
   {
     id: "local",
@@ -148,15 +141,14 @@ const SECTIONS: FeatureSection[] = [
       "No account required for core invoice tracking",
       "You decide what to send and to whom",
     ],
-    screen: "detail",
-    screenLabel: "DueSteer local-first privacy settings",
+    screen: "privacy",
   },
 ];
 
 export default function FeaturesPage() {
   return (
     <>
-      <Section as="section" muted className="pb-10">
+      <Section as="section" tone="muted" className="pb-10">
         <SectionHeading
           as="h1"
           eyebrow="Features"
@@ -169,58 +161,60 @@ export default function FeaturesPage() {
         </div>
       </Section>
 
-      {SECTIONS.map((section, index) => (
-        <Section
-          as="section"
-          key={section.id}
-          muted={index % 2 === 1}
-          className="scroll-mt-16"
-        >
-          <div id={section.id} />
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-              <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-accent">
-                <FeatureIcon name={section.icon} />
-              </span>
-              <SectionHeading
-                eyebrow={section.eyebrow}
-                title={section.title}
-                description={section.body}
-              />
-              <ul className="mt-6 flex flex-col gap-3">
-                {section.points.map((point) => (
-                  <li key={point} className="flex gap-3 text-sm text-slate-700">
-                    <svg
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-              <PhoneFrame label={section.screenLabel}>
-                <ScreenshotPlaceholder
+      {/* One large section per feature, alternating text | screenshot. */}
+      {SECTIONS.map((section, index) => {
+        const flipped = index % 2 === 1;
+        return (
+          <Section
+            as="section"
+            key={section.id}
+            tone={flipped ? "surface" : "muted"}
+            className="scroll-mt-16"
+          >
+            <div id={section.id} />
+            <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
+              <div className={flipped ? "lg:order-2" : ""}>
+                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft text-brand-strong">
+                  <FeatureIcon name={section.icon} />
+                </span>
+                <SectionHeading
+                  eyebrow={section.eyebrow}
                   title={section.title}
-                  variant={section.screen}
+                  description={section.body}
                 />
-              </PhoneFrame>
+                <ul className="mt-8 flex max-w-xl flex-col gap-3">
+                  {section.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-3 text-sm leading-relaxed text-ink/85"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={flipped ? "lg:order-1" : ""}>
+                <AppScreenshot screen={section.screen} size="lg" />
+              </div>
             </div>
-          </div>
-        </Section>
-      ))}
+          </Section>
+        );
+      })}
 
       {/* Escalation ladder detail */}
-      <Section as="section" muted>
+      <Section as="section" tone="tint">
         <SectionHeading
           eyebrow="The escalation ladder"
           title="Five clear stages of recovery"
@@ -249,12 +243,12 @@ export default function FeaturesPage() {
           ].map((item) => (
             <div
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700"
+              className="flex items-start gap-3 rounded-card border border-line bg-surface p-4 text-sm leading-relaxed text-body"
             >
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="mt-0.5 h-5 w-5 flex-shrink-0 text-slate-400"
+                className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

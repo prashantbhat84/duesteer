@@ -18,18 +18,23 @@ export default function LegalPage({
   children: ReactNode;
 }) {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-page py-12 sm:py-16 lg:py-20">
       <PageContainer>
-        <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900">
-            {title}
-          </h1>
-          <p className="mt-3 text-sm text-slate-500">
-            Last updated: {lastUpdated}
-          </p>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600">{intro}</p>
+        {/* ~68 characters per line — comfortable for long legal text. */}
+        <div className="mx-auto max-w-[calc(68ch+5rem)] rounded-panel border border-line bg-surface px-6 py-10 shadow-card sm:px-10 sm:py-12">
+          <header className="border-b border-line pb-8">
+            <h1 className="text-4xl font-bold tracking-tight text-ink text-balance">
+              {title}
+            </h1>
+            <p className="mt-3 text-sm text-muted">
+              Last updated: {lastUpdated}
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-body text-pretty">
+              {intro}
+            </p>
+          </header>
 
-          <div className="mt-10 [&_a]:font-medium [&_a]:text-accent [&_a]:underline [&>h2]:mt-10 [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:tracking-tight [&>h2]:text-slate-900 [&>p]:mt-4 [&>p]:leading-relaxed [&>p]:text-slate-600 [&>ul]:mt-4 [&>ul]:list-disc [&>ul]:space-y-2 [&>ul]:pl-6 [&>ul]:text-slate-600">
+          <div className="mt-10 text-[15px] [&_a]:font-medium [&_a]:text-brand-strong [&_a]:underline [&_a]:decoration-brand-line [&_a]:underline-offset-2 [&_a:hover]:decoration-brand [&_li]:leading-relaxed [&_strong]:font-semibold [&_strong]:text-ink [&>h2]:mt-12 [&>h2]:scroll-mt-24 [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:tracking-tight [&>h2]:text-ink [&>h2+p]:mt-3 [&>p]:mt-4 [&>p]:leading-relaxed [&>p]:text-body [&>ul]:mt-4 [&>ul]:list-disc [&>ul]:space-y-2 [&>ul]:pl-5 [&>ul]:marker:text-brand [&>ul]:text-body">
             {children}
           </div>
         </div>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <Section as="section" muted className="pb-10">
+      <Section as="section" tone="muted" className="pb-10">
         <SectionHeading
           as="h1"
           eyebrow="Pricing"
@@ -62,7 +62,7 @@ export default function PricingPage() {
           />
         </div>
 
-        <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-relaxed text-slate-500">
+        <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-relaxed text-muted">
           Pricing may vary by App Store country or region. Subscriptions are
           managed through Apple.
         </p>
@@ -73,7 +73,7 @@ export default function PricingPage() {
       </Section>
 
       {/* Pricing FAQ */}
-      <Section as="section">
+      <Section as="section" tone="muted">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <SectionHeading
             eyebrow="Billing questions"

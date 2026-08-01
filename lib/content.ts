@@ -53,9 +53,9 @@ export const FEATURE_HIGHLIGHTS: Feature[] = [
     icon: "chat",
   },
   {
-    title: "Dispute & payment-promise handling",
+    title: "Disputes and payment commitments",
     description:
-      "Pause recovery when a client disputes an invoice or promises to pay, then pick it back up on time.",
+      "Pause recovery when a client disputes an invoice or promises to pay, then continue at the appropriate time.",
     icon: "pause",
   },
   {
@@ -142,7 +142,7 @@ export const AUDIENCES: { title: string; description: string }[] = [
   {
     title: "Agencies",
     description:
-      "Standardise how your team follows up on unpaid invoices across every client.",
+      "Keep overdue client invoices moving through a consistent, professional recovery process.",
   },
   {
     title: "Small service businesses",

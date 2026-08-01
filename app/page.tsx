@@ -131,7 +131,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="The escalation ladder"
               title="Escalate professionally, one clear step at a time"
-              description="DueSteer moves each overdue invoice through a proven sequence, so every message is appropriate to how late the payment is."
+              description="DueSteer moves each overdue invoice through a structured sequence, so every message is appropriate to how late the payment is."
             />
             <div className="mt-8 max-w-xl">
               <EscalationLadder />

@@ -22,6 +22,7 @@ export default function Section({
   className = "",
   as: Tag = "section",
   bleed = false,
+  id,
   ariaLabelledby,
 }: {
   children: ReactNode;
@@ -29,10 +30,13 @@ export default function Section({
   className?: string;
   as?: ElementType;
   bleed?: boolean;
+  /** Anchor target — put it on the element itself rather than a spacer div. */
+  id?: string;
   ariaLabelledby?: string;
 }) {
   return (
     <Tag
+      id={id}
       aria-labelledby={ariaLabelledby}
       className={`py-16 sm:py-20 lg:py-24 ${tones[tone]} ${className}`}
     >

@@ -11,7 +11,7 @@ import CtaButton, { AppleIcon } from "./CtaButton";
  *      from "Coming Soon on the App Store" to "Download on the App Store",
  *      enables the link, and hides the "awaiting approval" note.
  */
-const PUBLISHED = false;
+const PUBLISHED = true;
 
 /**
  * The single App Store button. Always sources its URL from the APP_STORE_URL

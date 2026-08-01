@@ -9,7 +9,7 @@
  * renders a disabled "Coming Soon" state. At launch, paste the real URL here
  * and flip PUBLISHED in components/AppStoreButton.tsx — nothing else.
  */
-export const APP_STORE_URL = "";
+export const APP_STORE_URL = "https://apps.apple.com/in/app/duesteer-invoice-recovery/id6778435778";
 
 /** Canonical production URL for the marketing site (update at launch). */
 export const SITE_URL = "https://duesteer.app";

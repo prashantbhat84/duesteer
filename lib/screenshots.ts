@@ -22,9 +22,9 @@ export type ScreenshotKey =
   | "emailDraft"
   | "paymentPromise"
   | "recoveryHistory"
-  | "notifications"
-  | "pdfReport"
-  | "privacy";
+  | "disputeSelection"
+  | "disputePaused"
+  | "disputeResolved";
 
 type ReadyScreenshot = {
   status: "ready";
@@ -63,38 +63,52 @@ export const SCREENSHOTS: Record<ScreenshotKey, Screenshot> = {
     alt: "DueSteer escalation screen showing the recovery stages from friendly reminder through firm reminder, final notice and formal demand letter",
   },
   invoiceList: {
-    status: "pending",
-    expects: "invoice-list.png",
-    alt: "DueSteer overdue invoice list with clear status labels",
+    status: "ready",
+    src: "/screenshots/invoice-list.png",
+    width: 1320,
+    height: 2868,
+    alt: "DueSteer invoice list showing recovered, pending and lost totals above active overdue invoices with their days overdue and current recovery stage",
   },
   emailDraft: {
-    status: "pending",
-    expects: "email-draft.png",
+    status: "ready",
+    src: "/screenshots/email-draft.png",
+    width: 1260,
+    height: 2736,
     alt: "DueSteer generated follow-up email ready to review and send",
   },
   paymentPromise: {
-    status: "pending",
-    expects: "payment-promise.png",
+    status: "ready",
+    src: "/screenshots/payment-promise.png",
+    width: 1320,
+    height: 2868,
     alt: "DueSteer payment promise logged on an invoice",
   },
   recoveryHistory: {
-    status: "pending",
-    expects: "recovery-history.png",
+    status: "ready",
+    src: "/screenshots/recovery-history.png",
+    width: 1260,
+    height: 2736,
     alt: "DueSteer recovery history timeline for an invoice",
   },
-  notifications: {
-    status: "pending",
-    expects: "notifications.png",
-    alt: "DueSteer reminder notification for a follow-up",
+  disputeSelection: {
+    status: "ready",
+    src: "/screenshots/dispute-selection.png",
+    width: 1170,
+    height: 2532,
+    alt: "DueSteer invoice dispute selection screen with Invoice disputed selected and the Pause Escalation button visible",
   },
-  pdfReport: {
-    status: "pending",
-    expects: "pdf-report.png",
-    alt: "DueSteer recovery history PDF export preview",
+  disputePaused: {
+    status: "ready",
+    src: "/screenshots/dispute-paused.png",
+    width: 1170,
+    height: 2532,
+    alt: "DueSteer Invoice Details screen showing escalation paused because the invoice is under dispute",
   },
-  privacy: {
-    status: "pending",
-    expects: "privacy-settings.png",
-    alt: "DueSteer local-first privacy settings",
+  disputeResolved: {
+    status: "ready",
+    src: "/screenshots/dispute-resolved.png",
+    width: 1260,
+    height: 2736,
+    alt: "DueSteer screen for resolving an invoice dispute and continuing the invoice recovery process",
   },
 };

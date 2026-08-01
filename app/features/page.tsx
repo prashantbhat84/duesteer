@@ -8,9 +8,13 @@ import { FeatureIcon } from "@/components/FeatureCard";
 import type { ScreenshotKey } from "@/lib/screenshots";
 
 export const metadata: Metadata = {
-  title: "Features",
+  // `absolute` opts out of the root layout's "%s · Duesteer" template so the
+  // brand isn't repeated — the title already leads with it.
+  title: {
+    absolute: "DueSteer Features | Invoice Recovery and Dispute Management",
+  },
   description:
-    "Explore DueSteer's features for invoice recovery: overdue invoice tracking, a guided escalation ladder, client communication styles, dispute handling, payment-promise tracking, recovery history, notifications, PDF reports, and local-first storage.",
+    "See how DueSteer helps freelancers manage overdue invoices, pause escalation during disputes, track payment commitments, and continue recovery with a clear process.",
   alternates: { canonical: "/features" },
 };
 
@@ -67,14 +71,14 @@ const SECTIONS: FeatureSection[] = [
   },
   {
     id: "disputes",
-    eyebrow: "Handle the exceptions",
-    title: "Dispute handling",
+    eyebrow: "Client behaviour context",
+    title: "Track disputes and missed commitments",
     icon: "pause",
-    body: "When a client disputes an invoice, pause recovery for that invoice and keep a record of the dispute. Resume the process when the dispute is resolved.",
+    body: "DueSteer keeps a running record of disputes and missed payment commitments on each invoice, so every follow-up reflects what has already happened.",
     points: [
-      "Pause follow-ups on disputed invoices",
-      "Keep a record of what was disputed and when",
-      "Track resolved disputes over time",
+      "See disputes and missed commitments at a glance",
+      "Keep the complete escalation history with the invoice",
+      "Continue with the appropriate tone and next step",
     ],
     screen: "invoiceDetail",
   },
@@ -104,46 +108,82 @@ const SECTIONS: FeatureSection[] = [
     ],
     screen: "recoveryHistory",
   },
+];
+
+/**
+ * The three phases of the dispute workflow, rendered as H3 steps inside the
+ * single `#invoice-dispute-management` section. Rows alternate on desktop and
+ * stack heading → copy → screenshot on mobile.
+ */
+const DISPUTE_STEPS: {
+  caption: string;
+  title: string;
+  body: string;
+  points: string[];
+  screen: ScreenshotKey;
+}[] = [
   {
-    id: "notifications",
-    eyebrow: "Never miss a step",
-    title: "Notifications",
-    icon: "bell",
-    body: "Get reminded when it's time to take the next action, so overdue invoices keep moving toward resolution instead of stalling.",
+    caption: "1. Mark as disputed",
+    title: "Mark the invoice as disputed",
+    body: "When a client challenges the amount, scope, or work completed, mark the invoice as disputed and pause its active recovery workflow.",
     points: [
-      "Timely reminders for the next recovery step",
-      "Stay on top of follow-ups without a spreadsheet",
-      "Reduce forgotten, aging invoices",
+      "Mark the invoice as disputed",
+      "Pause the current escalation workflow",
+      "Preserve the existing recovery stage and history",
     ],
-    screen: "notifications",
+    screen: "disputeSelection",
   },
   {
-    id: "pdf",
-    eyebrow: "Share cleanly",
-    title: "PDF reports",
-    icon: "document",
-    body: "Export a clean recovery history PDF for any invoice — handy for your own records or to share with an accountant.",
+    caption: "2. Recovery stays paused",
+    title: "Keep the recovery workflow paused",
+    body: "The invoice clearly shows that escalation is paused while the issue is being reviewed. Its details and complete recovery history remain available.",
     points: [
-      "Export a professional recovery history",
-      "Keep records for your own bookkeeping",
-      "Share a clear summary when you need to",
+      "See the dispute status directly on Invoice Details",
+      "Pause reminders and next-step prompts",
+      "Keep the complete recovery history intact",
     ],
-    screen: "pdfReport",
+    screen: "disputePaused",
   },
   {
-    id: "local",
-    eyebrow: "Private by default",
-    title: "Local-first storage",
-    icon: "lock",
-    body: "Your invoice data is stored locally on your device. No cloud account is required to track invoices, and DueSteer doesn't store your invoice details in the cloud.",
+    caption: "3. Record the outcome",
+    title: "Record the outcome and choose what happens next",
+    body: "Once the client responds, record whether they paid, promised payment, or declined. DueSteer then helps you take the appropriate next step.",
     points: [
-      "Invoice data stays on your device",
-      "No account required for core invoice tracking",
-      "You decide what to send and to whom",
+      "Mark the invoice as paid when payment is received",
+      "Set a follow-up date when payment is promised",
+      "Continue recovery when the invoice remains unpaid",
     ],
-    screen: "privacy",
+    screen: "disputeResolved",
   },
 ];
+
+/** Checked supporting points, matching the list style used above. */
+function PointsList({ points }: { points: string[] }) {
+  return (
+    <ul className="mt-6 flex max-w-xl flex-col gap-3">
+      {points.map((point) => (
+        <li
+          key={point}
+          className="flex gap-3 text-sm leading-relaxed text-ink/85"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          <span>{point}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function FeaturesPage() {
   return (
@@ -212,6 +252,58 @@ export default function FeaturesPage() {
           </Section>
         );
       })}
+
+      {/*
+        Invoice dispute workflow — one section, three H3 steps. Rendered as
+        alternating rows rather than three phones side by side so the screen
+        text stays readable. All copy is server-rendered; nothing is hidden
+        behind tabs or a carousel.
+      */}
+      <Section
+        as="section"
+        id="invoice-dispute-management"
+        tone="muted"
+        className="scroll-mt-16"
+      >
+        <SectionHeading
+          eyebrow="Invoice dispute management"
+          title="Manage invoice disputes without losing recovery progress"
+          description="When a client challenges an invoice, DueSteer lets you pause the recovery workflow, preserve the invoice's history, and record the outcome before deciding what happens next."
+        />
+        <div className="mt-14 flex flex-col gap-14 lg:gap-20">
+          {DISPUTE_STEPS.map((step, index) => {
+            const flipped = index % 2 === 1;
+            return (
+              <div
+                key={step.caption}
+                className="grid items-center gap-10 lg:grid-cols-[1fr_0.8fr] lg:gap-16"
+              >
+                <div className={flipped ? "lg:order-2" : ""}>
+                  <span
+                    aria-hidden="true"
+                    className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-semibold text-brand-fg"
+                  >
+                    {index + 1}
+                  </span>
+                  <h3 className="text-xl font-semibold tracking-tight text-ink text-balance sm:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl leading-relaxed text-body text-pretty">
+                    {step.body}
+                  </p>
+                  <PointsList points={step.points} />
+                </div>
+                <figure className={flipped ? "lg:order-1" : ""}>
+                  <AppScreenshot screen={step.screen} size="lg" />
+                  <figcaption className="mt-4 text-center text-sm text-muted">
+                    {step.caption}
+                  </figcaption>
+                </figure>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
 
       {/* Escalation ladder detail */}
       <Section as="section" tone="tint">

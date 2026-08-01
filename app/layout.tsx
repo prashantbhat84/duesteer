@@ -74,9 +74,6 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <SpeedInsights />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
       </body>
     </html>
   );

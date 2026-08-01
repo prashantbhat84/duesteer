@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://duesteer.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://duesteer.app";
 const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Duesteer";
 const SITE_DESCRIPTION = process.env.NEXT_PUBLIC_SITE_DESCRIPTION ?? "Recover overdue invoices with a clear process.";
 

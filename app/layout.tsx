@@ -72,9 +72,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Analytics />
         <SpeedInsights />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
       </body>
     </html>
   );

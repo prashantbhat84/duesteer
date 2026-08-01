@@ -11,7 +11,7 @@ import CtaButton, { AppleIcon } from "./CtaButton";
  *      from "Coming Soon on the App Store" to "Download on the App Store",
  *      enables the link, and hides the "awaiting approval" note.
  */
-const PUBLISHED = false;
+const PUBLISHED = true;
 
 /**
  * The single App Store button. Always sources its URL from the APP_STORE_URL
@@ -22,12 +22,15 @@ export default function AppStoreButton({
   variant = "primary",
   className = "",
   note = true,
+  tone = "light",
 }: {
   size?: "md" | "lg";
   variant?: "primary" | "secondary";
   className?: string;
   /** Show the "awaiting App Store approval" note beneath the button. */
   note?: boolean;
+  /** Set to "dark" when the button sits on the dark CTA band, so the note stays readable. */
+  tone?: "light" | "dark";
 }) {
   const button = (
     <CtaButton
@@ -55,7 +58,11 @@ export default function AppStoreButton({
   return (
     <div className="flex flex-col gap-2">
       {button}
-      <p className="text-xs leading-relaxed text-slate-500">
+      <p
+        className={`text-xs leading-relaxed ${
+          tone === "dark" ? "text-on-ink-muted" : "text-muted"
+        }`}
+      >
         DueSteer is currently awaiting App Store approval.
       </p>
     </div>

@@ -9,7 +9,7 @@
  * renders a disabled "Coming Soon" state. At launch, paste the real URL here
  * and flip PUBLISHED in components/AppStoreButton.tsx — nothing else.
  */
-export const APP_STORE_URL = "";
+export const APP_STORE_URL = "https://apps.apple.com/in/app/duesteer-invoice-recovery/id6778435778";
 
 /** Canonical production URL for the marketing site (update at launch). */
 export const SITE_URL = "https://duesteer.app";
@@ -21,6 +21,16 @@ export const SUPPORT_EMAIL = "duesteer.app@gmail.com";
 export const PRIVACY_EMAIL = "duesteer.app@gmail.com";
 
 export const SITE_NAME = "DueSteer";
+
+/**
+ * App icon shown beside the wordmark in the header and footer.
+ *
+ * NOTE: `public/brand/duesteer-icon.png` is not present in the repo. The file
+ * below is the same 1024×1024 app-icon artwork in vector form, so it is used
+ * instead (next/image serves .svg unoptimised automatically). If you add the
+ * PNG, just point this constant at it — nothing else needs to change.
+ */
+export const BRAND_ICON = "/brand/duesteer-logo.svg";
 
 export const SITE_DESCRIPTION =
   "DueSteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";

@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { NAV_LINKS } from "@/lib/config";
 import AppStoreButton from "./AppStoreButton";
+import NavLinks from "./NavLinks";
 
 /**
  * Mobile navigation: a hamburger toggle that opens a full-width menu panel.
@@ -38,7 +37,7 @@ export default function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-700"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line-strong bg-surface text-ink"
       >
         <svg
           viewBox="0 0 24 24"
@@ -61,19 +60,13 @@ export default function MobileNav() {
       {open ? (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 top-16 z-40 border-t border-slate-200 bg-white shadow-lg"
+          className="fixed inset-x-0 top-16 z-40 max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-surface shadow-raised"
         >
-          <nav className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-slate-800 hover:bg-slate-50"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav
+            aria-label="Primary"
+            className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4 sm:px-6"
+          >
+            <NavLinks layout="stacked" onNavigate={() => setOpen(false)} />
             <div className="mt-3">
               <AppStoreButton size="lg" className="w-full" note={false} />
             </div>

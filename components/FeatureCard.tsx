@@ -85,14 +85,14 @@ export default function FeatureCard({
   icon?: string;
 }) {
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-slate-300">
+    <div className="flex h-full flex-col rounded-card border border-line bg-surface p-6 shadow-card transition-colors hover:border-brand-line">
       {icon ? (
-        <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-accent">
+        <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand-strong">
           <FeatureIcon name={icon} />
         </span>
       ) : null}
-      <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+      <h3 className="text-base font-semibold text-ink">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-body">{description}</p>
     </div>
   );
 }

@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import { SITE_NAME } from "@/lib/config";
+import { BRAND_ICON, SITE_NAME } from "@/lib/config";
 
 /**
- * DueSteer wordmark: a simple accent glyph plus the product name.
- * Not an imitation of any existing brand.
+ * DueSteer wordmark: the real app icon beside the product name, sized to match
+ * an iOS home-screen icon (32px) so the site reads as the app's own site.
  */
 export default function Wordmark({
   className = "",
@@ -13,27 +14,18 @@ export default function Wordmark({
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2 font-semibold tracking-tight text-slate-900 ${className}`}
+      className={`inline-flex items-center gap-2.5 font-semibold tracking-tight text-ink ${className}`}
       aria-label={`${SITE_NAME} home`}
     >
-      <span
+      <Image
+        src={BRAND_ICON}
+        alt=""
         aria-hidden="true"
-        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-fg"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2.25}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Upward steps — steering invoices toward resolution. */}
-          <path d="M4 17h4v-4h4V9h4V5" />
-          <path d="M14 5h4v4" />
-        </svg>
-      </span>
+        width={32}
+        height={32}
+        loading="eager"
+        className="h-8 w-8 rounded-[9px] shadow-card ring-1 ring-black/5"
+      />
       <span className="text-lg">{SITE_NAME}</span>
     </Link>
   );

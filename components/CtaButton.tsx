@@ -8,10 +8,13 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
+  /* DueSteer green — the single primary action colour across the site. */
   primary:
-    "bg-accent text-accent-fg hover:bg-accent-hover shadow-sm focus-visible:outline-accent",
+    "bg-brand text-brand-fg hover:bg-brand-hover shadow-card focus-visible:outline-brand",
+  /* Deliberately quiet: a white surface with a neutral border, so the primary
+     action always wins the eye. Also readable on the dark CTA band. */
   secondary:
-    "bg-white text-slate-900 border border-slate-300 hover:bg-slate-50 focus-visible:outline-slate-900",
+    "bg-surface text-ink border border-line-strong hover:bg-surface-muted focus-visible:outline-brand",
 };
 
 const sizes: Record<Size, string> = {

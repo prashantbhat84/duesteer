@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <Section as="section" muted className="pb-10">
+      <Section as="section" tone="muted" className="pb-10">
         <SectionHeading
           as="h1"
           eyebrow="FAQ"
@@ -33,16 +33,16 @@ export default function FaqPage() {
         </div>
       </Section>
 
-      <Section as="section" muted>
-        <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+      <Section as="section" tone="muted">
+        <div className="mx-auto max-w-2xl rounded-panel border border-line bg-surface p-8 text-center shadow-card sm:p-10">
+          <h2 className="text-2xl font-bold tracking-tight text-ink text-balance">
             Still have a question?
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 leading-relaxed text-body">
             We&apos;re happy to help. Reach the team at{" "}
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
-              className="font-medium text-accent underline"
+              className="font-medium text-brand-strong underline decoration-brand-line underline-offset-2 hover:decoration-brand"
             >
               {SUPPORT_EMAIL}
             </a>

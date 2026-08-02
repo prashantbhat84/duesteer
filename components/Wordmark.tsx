@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BRAND_ICON, SITE_NAME } from "@/lib/config";
 
 /**
- * DueSteer wordmark: the real app icon beside the product name, sized to match
+ * Duesteer wordmark: the real app icon beside the product name, sized to match
  * an iOS home-screen icon (32px) so the site reads as the app's own site.
  */
 export default function Wordmark({

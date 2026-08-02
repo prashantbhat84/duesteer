@@ -8,7 +8,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  /* DueSteer green — the single primary action colour across the site. */
+  /* Duesteer green — the single primary action colour across the site. */
   primary:
     "bg-brand text-brand-fg hover:bg-brand-hover shadow-card focus-visible:outline-brand",
   /* Deliberately quiet: a white surface with a neutral border, so the primary

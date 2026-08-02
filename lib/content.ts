@@ -18,7 +18,7 @@ export const HOW_IT_WORKS: Step[] = [
   {
     title: "Review the recommended next action",
     description:
-      "DueSteer looks at where the invoice sits in the recovery process and suggests the right next step.",
+      "Duesteer looks at where the invoice sits in the recovery process and suggests the right next step.",
   },
   {
     title: "Send the professional follow-up",
@@ -119,7 +119,7 @@ export const ESCALATION_STAGES: EscalationStage[] = [
   {
     name: "External Action",
     description:
-      "A prompt to consider outside options. DueSteer guides the step but does not provide legal advice.",
+      "A prompt to consider outside options. Duesteer guides the step but does not provide legal advice.",
   },
 ];
 
@@ -158,34 +158,34 @@ export type Faq = {
 
 export const FAQS: Faq[] = [
   {
-    question: "What is DueSteer?",
+    question: "What is Duesteer?",
     answer:
-      "DueSteer is an iOS app that helps you recover overdue invoices with a clear, professional escalation process. Instead of sending random reminders, you follow a guided ladder of steps and generate appropriate follow-up emails.",
+      "Duesteer is an iOS app that helps you recover overdue invoices with a clear, professional escalation process. Instead of sending random reminders, you follow a guided ladder of steps and generate appropriate follow-up emails.",
   },
   {
     question: "Who is it for?",
     answer:
-      "DueSteer is built for freelancers, consultants, contractors, agencies, and small service businesses — anyone who invoices clients and occasionally has to chase late payments.",
+      "Duesteer is built for freelancers, consultants, contractors, agencies, and small service businesses — anyone who invoices clients and occasionally has to chase late payments.",
   },
   {
-    question: "Does DueSteer send emails automatically?",
+    question: "Does Duesteer send emails automatically?",
     answer:
-      "No. DueSteer helps you generate professional reminder and escalation emails, but you review and send them yourself from your own email app. You stay in full control of every message.",
+      "No. Duesteer helps you generate professional reminder and escalation emails, but you review and send them yourself from your own email app. You stay in full control of every message.",
   },
   {
-    question: "Does DueSteer connect to accounting software?",
+    question: "Does Duesteer connect to accounting software?",
     answer:
-      "No. DueSteer does not connect to accounting software, bank accounts, or payment processors. You add invoices manually, which keeps your data self-contained and under your control.",
+      "No. Duesteer does not connect to accounting software, bank accounts, or payment processors. You add invoices manually, which keeps your data self-contained and under your control.",
   },
   {
     question: "Where is invoice data stored?",
     answer:
-      "Invoice data is stored locally on your device. DueSteer does not require a cloud account to track invoices, and your invoice details are not stored in the cloud.",
+      "Invoice data is stored locally on your device. Duesteer does not require a cloud account to track invoices, and your invoice details are not stored in the cloud.",
   },
   {
-    question: "Does DueSteer provide legal advice?",
+    question: "Does Duesteer provide legal advice?",
     answer:
-      "No. DueSteer guides you through a structured recovery process and can prompt you to consider external action, but it does not provide legal, financial, or accounting advice. For legal questions, consult a qualified professional.",
+      "No. Duesteer guides you through a structured recovery process and can prompt you to consider external action, but it does not provide legal, financial, or accounting advice. For legal questions, consult a qualified professional.",
   },
   {
     question: "Can I pause recovery if a client disputes an invoice?",
@@ -195,7 +195,7 @@ export const FAQS: Faq[] = [
   {
     question: "What happens if a client promises to pay?",
     answer:
-      "You can log a payment promise and pause follow-ups until the promised date. If the promise is broken, DueSteer helps you pick the process back up where you left off.",
+      "You can log a payment promise and pause follow-ups until the promised date. If the promise is broken, Duesteer helps you pick the process back up where you left off.",
   },
   {
     question: "Can I export invoice recovery history?",
@@ -203,19 +203,19 @@ export const FAQS: Faq[] = [
       "Yes. Premium lets you export a recovery history PDF for any invoice — useful for your own records or to share with an accountant.",
   },
   {
-    question: "Is DueSteer available on Android?",
+    question: "Is Duesteer available on Android?",
     answer:
-      "DueSteer is currently an iOS app. There is no Android version at this time.",
+      "Duesteer is currently an iOS app. There is no Android version at this time.",
   },
   {
-    question: "How much does DueSteer cost?",
+    question: "How much does Duesteer cost?",
     answer:
-      "DueSteer is free to manage up to 2 invoices. Premium is $9.99 per month or $59.99 per year. Subscriptions are handled through Apple, and pricing may vary by country or region.",
+      "Duesteer is free to manage up to 2 invoices. Premium is $9.99 per month or $59.99 per year. Subscriptions are handled through Apple, and pricing may vary by country or region.",
   },
   {
     question: "How do I contact support?",
     answer:
-      "You can email the DueSteer team at duesteer.app@gmail.com. See the Support page for help with bugs, feature requests, and billing questions.",
+      "You can email the Duesteer team at duesteer.app@gmail.com. See the Support page for help with bugs, feature requests, and billing questions.",
   },
 ];
 

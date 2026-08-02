@@ -1,5 +1,5 @@
 /**
- * Manifest of the real DueSteer app screenshots used across the marketing site.
+ * Manifest of the real Duesteer app screenshots used across the marketing site.
  *
  * Every product image on the site comes from this file — there is no hand-drawn
  * or CSS-mocked app UI anywhere in the codebase.
@@ -14,6 +14,8 @@
  * Screens marked "pending" render a clearly-labelled placeholder instead of an
  * invented product screen.
  */
+
+import { SITE_NAME } from "./config";
 
 export type ScreenshotKey =
   | "invoiceDetail"
@@ -53,62 +55,62 @@ export const SCREENSHOTS: Record<ScreenshotKey, Screenshot> = {
     src: "/screenshots/invoice-detail.png",
     width: 1170,
     height: 2532,
-    alt: "DueSteer invoice detail screen showing an overdue amount, client payment behaviour, the next escalation action, and a pause escalation control",
+    alt: `${SITE_NAME} invoice detail screen showing an overdue amount, client payment behaviour, the next escalation action, and a pause escalation control`,
   },
   escalation: {
     status: "ready",
     src: "/screenshots/escalation-stages.png",
     width: 1260,
     height: 2736,
-    alt: "DueSteer escalation screen showing the recovery stages from friendly reminder through firm reminder, final notice and formal demand letter",
+    alt: `${SITE_NAME} escalation screen showing the recovery stages from friendly reminder through firm reminder, final notice and formal demand letter`,
   },
   invoiceList: {
     status: "ready",
     src: "/screenshots/invoice-list.png",
     width: 1320,
     height: 2868,
-    alt: "DueSteer invoice list showing recovered, pending and lost totals above active overdue invoices with their days overdue and current recovery stage",
+    alt: `${SITE_NAME} invoice list showing recovered, pending and lost totals above active overdue invoices with their days overdue and current recovery stage`,
   },
   emailDraft: {
     status: "ready",
     src: "/screenshots/email-draft.png",
     width: 1260,
     height: 2736,
-    alt: "DueSteer generated follow-up email ready to review and send",
+    alt: `${SITE_NAME} generated follow-up email ready to review and send`,
   },
   paymentPromise: {
     status: "ready",
     src: "/screenshots/payment-promise.png",
     width: 1320,
     height: 2868,
-    alt: "DueSteer payment promise logged on an invoice",
+    alt: `${SITE_NAME} payment promise logged on an invoice`,
   },
   recoveryHistory: {
     status: "ready",
     src: "/screenshots/recovery-history.png",
     width: 1260,
     height: 2736,
-    alt: "DueSteer recovery history timeline for an invoice",
+    alt: `${SITE_NAME} recovery history timeline for an invoice`,
   },
   disputeSelection: {
     status: "ready",
     src: "/screenshots/dispute-selection.png",
     width: 1170,
     height: 2532,
-    alt: "DueSteer invoice dispute selection screen with Invoice disputed selected and the Pause Escalation button visible",
+    alt: `${SITE_NAME} invoice dispute selection screen with Invoice disputed selected and the Pause Escalation button visible`,
   },
   disputePaused: {
     status: "ready",
     src: "/screenshots/dispute-paused.png",
     width: 1170,
     height: 2532,
-    alt: "DueSteer Invoice Details screen showing escalation paused because the invoice is under dispute",
+    alt: `${SITE_NAME} Invoice Details screen showing escalation paused because the invoice is under dispute`,
   },
   disputeResolved: {
     status: "ready",
     src: "/screenshots/dispute-resolved.png",
     width: 1260,
     height: 2736,
-    alt: "DueSteer screen for resolving an invoice dispute and continuing the invoice recovery process",
+    alt: `${SITE_NAME} screen for resolving an invoice dispute and continuing the invoice recovery process`,
   },
 };

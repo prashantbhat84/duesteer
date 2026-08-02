@@ -9,7 +9,7 @@ import EscalationLadder from "@/components/EscalationLadder";
 import CtaButton from "@/components/CtaButton";
 import AppStoreButton from "@/components/AppStoreButton";
 import AppScreenshot from "@/components/AppScreenshot";
-import { PRICING } from "@/lib/config";
+import { PRICING, SITE_NAME } from "@/lib/config";
 import {
   AUDIENCES,
   FAQ_TEASER,
@@ -18,9 +18,16 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Recover overdue invoices with a clear process",
+  /*
+   * `absolute` is required here: Next.js does not apply the root layout's
+   * title template to a page in the same route segment, so a bare string would
+   * render without the "· Duesteer" suffix every other page gets.
+   */
+  title: {
+    absolute: `${SITE_NAME} — Recover overdue invoices with a clear process`,
+  },
   description:
-    "DueSteer is a guided invoice recovery app for freelancers and small businesses. Track unpaid invoices, follow a professional escalation ladder, and send the right payment follow-up at the right time.",
+    "Duesteer is a guided invoice recovery app for freelancers and small businesses. Track unpaid invoices, follow a professional escalation ladder, and send the right payment follow-up at the right time.",
   alternates: { canonical: "/" },
 };
 
@@ -38,7 +45,7 @@ export default function HomePage() {
               Stop improvising. Recover overdue invoices with a clear process.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-body text-pretty">
-              DueSteer helps freelancers and small businesses track overdue
+              Duesteer helps freelancers and small businesses track overdue
               invoices, choose the right next step, and send professional
               payment follow-ups without damaging client relationships.
             </p>
@@ -131,13 +138,13 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="The escalation ladder"
               title="Escalate professionally, one clear step at a time"
-              description="DueSteer moves each overdue invoice through a structured sequence, so every message is appropriate to how late the payment is."
+              description="Duesteer moves each overdue invoice through a structured sequence, so every message is appropriate to how late the payment is."
             />
             <div className="mt-8 max-w-xl">
               <EscalationLadder />
             </div>
             <p className="mt-8 max-w-xl rounded-card border border-line bg-surface p-4 text-sm leading-relaxed text-body">
-              DueSteer guides the recovery process but does not provide legal
+              Duesteer guides the recovery process but does not provide legal
               advice. For legal questions, consult a qualified professional.
             </p>
           </div>
@@ -196,7 +203,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Privacy"
               title="Local-first by design"
-              description="DueSteer keeps you in control of your data and your communications. Track unpaid invoices privately, without handing your books to another service."
+              description="Duesteer keeps you in control of your data and your communications. Track unpaid invoices privately, without handing your books to another service."
             />
             <div className="mt-8">
               <CtaButton href="/privacy" variant="secondary">
@@ -213,7 +220,7 @@ export default function HomePage() {
                 },
                 {
                   title: "No accounting software required",
-                  body: "DueSteer never asks you to connect accounting tools or bank accounts.",
+                  body: "Duesteer never asks you to connect accounting tools or bank accounts.",
                 },
                 {
                   title: "You control every message",
@@ -340,7 +347,7 @@ export default function HomePage() {
             Take the guesswork out of getting paid
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-on-ink-muted text-pretty">
-            Give every overdue invoice a clear next step. Download DueSteer and
+            Give every overdue invoice a clear next step. Download Duesteer and
             recover late payments with a process you can trust.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-start">

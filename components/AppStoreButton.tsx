@@ -1,8 +1,8 @@
-import { APP_STORE_URL } from "@/lib/config";
+import { APP_STORE_URL, SITE_NAME } from "@/lib/config";
 import CtaButton, { AppleIcon } from "./CtaButton";
 
 /**
- * DueSteer has not been published yet, so the App Store CTA is shown in a
+ * Duesteer has not been published yet, so the App Store CTA is shown in a
  * disabled "Coming Soon" state and does not navigate anywhere.
  *
  * AT LAUNCH — two edits, nothing else:
@@ -42,8 +42,8 @@ export default function AppStoreButton({
       className={className}
       aria-label={
         PUBLISHED
-          ? "Download DueSteer on the App Store"
-          : "DueSteer coming soon on the App Store"
+          ? `Download ${SITE_NAME} on the App Store`
+          : `${SITE_NAME} coming soon on the App Store`
       }
     >
       <AppleIcon />
@@ -63,7 +63,7 @@ export default function AppStoreButton({
           tone === "dark" ? "text-on-ink-muted" : "text-muted"
         }`}
       >
-        DueSteer is currently awaiting App Store approval.
+        {SITE_NAME} is currently awaiting App Store approval.
       </p>
     </div>
   );

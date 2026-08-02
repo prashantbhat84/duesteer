@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SCREENSHOTS, type ScreenshotKey } from "@/lib/screenshots";
 
 /**
- * Renders a real DueSteer app screenshot in one consistent, restrained device
+ * Renders a real Duesteer app screenshot in one consistent, restrained device
  * presentation: a thin neutral bezel with a soft shadow. The supplied assets are
  * raw iOS screenshots (no device chrome baked in), so the frame is added here —
  * never draw a second frame around an already-framed image.

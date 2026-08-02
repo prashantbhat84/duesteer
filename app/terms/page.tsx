@@ -5,7 +5,7 @@ import { SITE_NAME, SUPPORT_EMAIL } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "The terms that apply to your use of the DueSteer iOS app and website, including product purpose, user responsibility, subscriptions through Apple, and limitation of liability.",
+    "The terms that apply to your use of the Duesteer iOS app and website, including product purpose, user responsibility, subscriptions through Apple, and limitation of liability.",
   alternates: { canonical: "/terms" },
 };
 

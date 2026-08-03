@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/config";
+import { GUIDES } from "@/lib/guides";
 
 /** Static sitemap covering all marketing routes. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,6 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/features", changeFrequency: "monthly", priority: 0.9 },
     { path: "/pricing", changeFrequency: "monthly", priority: 0.9 },
     { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/resources", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/guides", changeFrequency: "monthly", priority: 0.7 },
+    /* One entry per published guide — new guides are picked up automatically. */
+    ...GUIDES.map((guide) => ({
+      path: `/guides/${guide.slug}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+    })),
     { path: "/support", changeFrequency: "yearly", priority: 0.6 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },

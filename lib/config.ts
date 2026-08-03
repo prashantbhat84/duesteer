@@ -20,7 +20,7 @@ export const SUPPORT_EMAIL = "duesteer.app@gmail.com";
 /** Email for privacy-related questions. */
 export const PRIVACY_EMAIL = "duesteer.app@gmail.com";
 
-export const SITE_NAME = "DueSteer";
+export const SITE_NAME = "Duesteer";
 
 /**
  * App icon shown beside the wordmark in the header and footer.
@@ -33,12 +33,13 @@ export const SITE_NAME = "DueSteer";
 export const BRAND_ICON = "/brand/duesteer-logo.svg";
 
 export const SITE_DESCRIPTION =
-  "DueSteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
+  "Duesteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
 
 /** Primary navigation links used by the header and footer. */
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
   { label: "Support", href: "/support" },
 ] as const;

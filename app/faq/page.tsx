@@ -10,7 +10,7 @@ import { FAQS } from "@/lib/content";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about DueSteer: what it is, who it's for, how invoice data is stored, whether it sends emails automatically, dispute and payment-promise handling, pricing, and support.",
+    "Answers to common questions about Duesteer: what it is, who it's for, how invoice data is stored, whether it sends emails automatically, dispute and payment-promise handling, pricing, and support.",
   alternates: { canonical: "/faq" },
 };
 
@@ -22,7 +22,7 @@ export default function FaqPage() {
           as="h1"
           eyebrow="FAQ"
           title="Frequently asked questions"
-          description="Everything you might want to know about how DueSteer helps you recover overdue invoices."
+          description="Everything you might want to know about how Duesteer helps you recover overdue invoices."
           align="center"
         />
       </Section>

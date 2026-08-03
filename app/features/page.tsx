@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   // `absolute` opts out of the root layout's "%s · Duesteer" template so the
   // brand isn't repeated — the title already leads with it.
   title: {
-    absolute: "DueSteer Features | Invoice Recovery and Dispute Management",
+    absolute: "Duesteer Features | Invoice Recovery and Dispute Management",
   },
   description:
-    "See how DueSteer helps freelancers manage overdue invoices, pause escalation during disputes, track payment commitments, and continue recovery with a clear process.",
+    "See how Duesteer helps freelancers manage overdue invoices, pause escalation during disputes, track payment commitments, and continue recovery with a clear process.",
   alternates: { canonical: "/features" },
 };
 
@@ -35,7 +35,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: "Stay organised",
     title: "Overdue invoice tracking",
     icon: "status",
-    body: "Add each unpaid invoice with its client, amount, and due date, then see exactly where it stands. DueSteer keeps every overdue invoice in one clear list so nothing gets forgotten.",
+    body: "Add each unpaid invoice with its client, amount, and due date, then see exactly where it stands. Duesteer keeps every overdue invoice in one clear list so nothing gets forgotten.",
     points: [
       "See which invoices are on track, waiting, disputed, or resolved",
       "Sort and scan overdue invoices at a glance",
@@ -48,7 +48,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: "Recover professionally",
     title: "Guided escalation stages",
     icon: "ladder",
-    body: "Every invoice moves through a clear ladder of recovery stages, from a friendly reminder to a formal demand. DueSteer recommends the right next action based on where the invoice sits.",
+    body: "Every invoice moves through a clear ladder of recovery stages, from a friendly reminder to a formal demand. Duesteer recommends the right next action based on where the invoice sits.",
     points: [
       "A structured sequence instead of one-off reminders",
       "A recommended next step for each invoice",
@@ -74,7 +74,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: "Client behaviour context",
     title: "Track disputes and missed commitments",
     icon: "pause",
-    body: "DueSteer keeps a running record of disputes and missed payment commitments on each invoice, so every follow-up reflects what has already happened.",
+    body: "Duesteer keeps a running record of disputes and missed payment commitments on each invoice, so every follow-up reflects what has already happened.",
     points: [
       "See disputes and missed commitments at a glance",
       "Keep the complete escalation history with the invoice",
@@ -87,7 +87,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: "Hold the line",
     title: "Payment promise tracking",
     icon: "history",
-    body: "Log a client's promise to pay and pause follow-ups until the promised date. If the promise is broken, DueSteer helps you pick the process back up right where you left off.",
+    body: "Log a client's promise to pay and pause follow-ups until the promised date. If the promise is broken, Duesteer helps you pick the process back up right where you left off.",
     points: [
       "Record promised payment dates",
       "Pause recovery until the promise is due",
@@ -100,7 +100,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: "Keep the record",
     title: "Recovery history",
     icon: "document",
-    body: "DueSteer keeps a running history of every reminder, dispute, and promise for each invoice, so you always know what happened and when.",
+    body: "Duesteer keeps a running history of every reminder, dispute, and promise for each invoice, so you always know what happened and when.",
     points: [
       "A timeline of actions for each invoice",
       "See resolved disputes and broken promises",
@@ -147,7 +147,7 @@ const DISPUTE_STEPS: {
   {
     caption: "3. Record the outcome",
     title: "Record the outcome and choose what happens next",
-    body: "Once the client responds, record whether they paid, promised payment, or declined. DueSteer then helps you take the appropriate next step.",
+    body: "Once the client responds, record whether they paid, promised payment, or declined. Duesteer then helps you take the appropriate next step.",
     points: [
       "Mark the invoice as paid when payment is received",
       "Set a follow-up date when payment is promised",
@@ -193,7 +193,7 @@ export default function FeaturesPage() {
           as="h1"
           eyebrow="Features"
           title="A complete toolkit for invoice recovery"
-          description="DueSteer gives every overdue invoice a clear next step — from the first friendly reminder through to a formal demand — while keeping your data on your device."
+          description="Duesteer gives every overdue invoice a clear next step — from the first friendly reminder through to a formal demand — while keeping your data on your device."
           align="center"
         />
         <div className="mt-8 flex justify-center">
@@ -268,7 +268,7 @@ export default function FeaturesPage() {
         <SectionHeading
           eyebrow="Invoice dispute management"
           title="Manage invoice disputes without losing recovery progress"
-          description="When a client challenges an invoice, DueSteer lets you pause the recovery workflow, preserve the invoice's history, and record the outcome before deciding what happens next."
+          description="When a client challenges an invoice, Duesteer lets you pause the recovery workflow, preserve the invoice's history, and record the outcome before deciding what happens next."
         />
         <div className="mt-14 flex flex-col gap-14 lg:gap-20">
           {DISPUTE_STEPS.map((step, index) => {
@@ -310,19 +310,19 @@ export default function FeaturesPage() {
         <SectionHeading
           eyebrow="The escalation ladder"
           title="Five clear stages of recovery"
-          description="DueSteer guides each invoice through these stages. It structures the process but does not provide legal advice."
+          description="Duesteer guides each invoice through these stages. It structures the process but does not provide legal advice."
         />
         <div className="mt-10 max-w-2xl">
           <EscalationLadder />
         </div>
       </Section>
 
-      {/* Clarity: what DueSteer does not do */}
+      {/* Clarity: what Duesteer does not do */}
       <Section as="section">
         <SectionHeading
           eyebrow="Clarity"
-          title="What DueSteer doesn't do"
-          description="We keep the product honest and focused. DueSteer intentionally leaves these outside its scope."
+          title="What Duesteer doesn't do"
+          description="We keep the product honest and focused. Duesteer intentionally leaves these outside its scope."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {[

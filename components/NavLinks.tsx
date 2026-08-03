@@ -6,7 +6,7 @@ import { NAV_LINKS } from "@/lib/config";
 
 /**
  * The primary navigation links, shared by the desktop header and the mobile
- * menu. The current section is marked with the DueSteer brand colour.
+ * menu. The current section is marked with the Duesteer brand colour.
  */
 export default function NavLinks({
   layout = "inline",

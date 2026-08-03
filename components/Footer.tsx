@@ -54,7 +54,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-line pt-6">
           <p className="max-w-3xl text-xs leading-relaxed text-muted">
-            © {year} {SITE_NAME}. All rights reserved. DueSteer guides your
+            © {year} {SITE_NAME}. All rights reserved. {SITE_NAME} guides your
             invoice recovery process and does not provide legal, financial, or
             accounting advice.
           </p>

@@ -5,7 +5,7 @@ import { PRIVACY_EMAIL, SITE_NAME } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How DueSteer handles your information. Invoice data is stored locally on your device, no account is required for core invoice tracking, and subscriptions are processed by Apple.",
+    "How Duesteer handles your information. Invoice data is stored locally on your device, no account is required for core invoice tracking, and subscriptions are processed by Apple.",
   alternates: { canonical: "/privacy" },
 };
 

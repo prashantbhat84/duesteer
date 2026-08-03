@@ -11,7 +11,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "DueSteer pricing: get the complete launch experience free for up to 2 invoices, or go Premium for unlimited invoices and access to future premium features. $9.99/month or $59.99/year via Apple.",
+    "Duesteer pricing: get the complete launch experience free for up to 2 invoices, or go Premium for unlimited invoices and access to future premium features. $9.99/month or $59.99/year via Apple.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -23,7 +23,7 @@ export default function PricingPage() {
           as="h1"
           eyebrow="Pricing"
           title="Start free. Go Premium when you outgrow the limit."
-          description={`Get the complete DueSteer launch experience free for up to ${PRICING.freeInvoiceLimit} invoices. Upgrade to Premium to recover invoices without limits.`}
+          description={`Get the complete Duesteer launch experience free for up to ${PRICING.freeInvoiceLimit} invoices. Upgrade to Premium to recover invoices without limits.`}
           align="center"
         />
       </Section>
@@ -33,7 +33,7 @@ export default function PricingPage() {
           <PricingCard
             name="Free"
             price="$0"
-            description="Use the complete DueSteer launch experience"
+            description="Use the complete Duesteer launch experience"
             features={[
               `Manage up to ${PRICING.freeInvoiceLimit} invoices`,
               "Full guided escalation workflow",
@@ -83,7 +83,7 @@ export default function PricingPage() {
           <div>
             <FaqAccordion
               items={FAQS.filter((f) =>
-                ["How much does DueSteer cost?", "How do I contact support?"].includes(
+                ["How much does Duesteer cost?", "How do I contact support?"].includes(
                   f.question,
                 ),
               )}

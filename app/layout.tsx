@@ -5,10 +5,17 @@ import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import {
+  SITE_DESCRIPTION as DEFAULT_SITE_DESCRIPTION,
+  SITE_NAME as DEFAULT_SITE_NAME,
+  SITE_URL as DEFAULT_SITE_URL,
+} from "@/lib/config";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://duesteer.com";
-const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Duesteer";
-const SITE_DESCRIPTION = process.env.NEXT_PUBLIC_SITE_DESCRIPTION ?? "Recover overdue invoices with a clear process.";
+/* Deploy-time overrides fall back to the central values in lib/config.ts. */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL;
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? DEFAULT_SITE_NAME;
+const SITE_DESCRIPTION =
+  process.env.NEXT_PUBLIC_SITE_DESCRIPTION ?? DEFAULT_SITE_DESCRIPTION;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

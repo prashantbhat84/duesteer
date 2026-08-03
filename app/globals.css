@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * DueSteer design tokens.
+ * Duesteer design tokens.
  *
  * The visual system is deliberately restrained: neutral off-white surfaces,
  * white cards, charcoal text, and a single brand colour (#0FA070) reserved for
@@ -12,7 +12,7 @@
  */
 :root {
   /* ---- Brand -------------------------------------------------------- */
-  /* Official DueSteer green. Used for fills, active states and accents. */
+  /* Official Duesteer green. Used for fills, active states and accents. */
   --brand: #0fa070;
   --brand-hover: #0c8a60;
   /* Darker green reserved for green *text* on light surfaces (WCAG AA). */

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/config";
 import { GUIDES } from "@/lib/guides";
+import { COMPARISONS } from "@/lib/comparisons";
 
 /** Static sitemap covering all marketing routes. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     /* One entry per published guide — new guides are picked up automatically. */
     ...GUIDES.map((guide) => ({
       path: `/guides/${guide.slug}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+    })),
+    { path: "/compare", changeFrequency: "monthly", priority: 0.7 },
+    /* One entry per published comparison — new ones are picked up automatically. */
+    ...COMPARISONS.map((comparison) => ({
+      path: `/compare/${comparison.slug}`,
       changeFrequency: "yearly" as const,
       priority: 0.6,
     })),

@@ -39,8 +39,8 @@ const RESOURCES = [
     title: "Comparisons",
     description:
       "Clear comparisons between invoice recovery tools and different ways of handling unpaid invoices.",
+    href: "/compare",
     icon: "status",
-    comingSoon: true,
   },
 ];
 

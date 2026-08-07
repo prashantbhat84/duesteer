@@ -285,7 +285,11 @@ export default function RecoverOverdueInvoiceGuide() {
                   Treat a second promise with more scepticism than the first. It
                   is reasonable to ask for part of the balance now, or a short
                   payment plan in writing, rather than another open-ended
-                  assurance.
+                  assurance. For a fuller walkthrough, see{" "}
+                  <Link href="/guides/client-missed-payment-promise">
+                    what to do when a client misses a promised payment date
+                  </Link>
+                  .
                 </p>
               </section>
 

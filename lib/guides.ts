@@ -26,6 +26,13 @@ export const GUIDES: Guide[] = [
       "A practical process for moving from a friendly reminder to firmer follow-ups and formal action when an invoice remains unpaid.",
     published: "2026-08-03",
   },
+  {
+    slug: "client-missed-payment-promise",
+    title: "What to Do When a Client Promises Payment and Misses the Date",
+    description:
+      "A client gave you a payment date, but the money never arrived. Learn how to follow up, record the missed commitment and decide what should happen next.",
+    published: "2026-08-07",
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {

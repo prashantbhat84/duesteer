@@ -353,7 +353,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-start">
             <AppStoreButton size="lg" tone="dark" />
             <CtaButton href="/features" variant="secondary" size="lg">
-              Learn more
+              Explore Duesteer features
             </CtaButton>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import FeatureCard from "@/components/FeatureCard";
@@ -357,6 +358,26 @@ export default function HomePage() {
             </CtaButton>
           </div>
         </div>
+      </section>
+      <section aria-label="Product Hunt" className="bg-surface-muted">
+        <PageContainer className="py-10 text-center">
+          <a
+            href="https://www.producthunt.com/products/duesteer?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-duesteer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1223940&theme=light&t=1786857510893"
+              alt="Duesteer on Product Hunt"
+              width={250}
+              height={54}
+              loading="lazy"
+              className="h-auto w-[250px] max-w-full"
+            />
+          </a>
+        </PageContainer>
       </section>
     </>
   );

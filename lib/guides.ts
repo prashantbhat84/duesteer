@@ -26,6 +26,20 @@ export const GUIDES: Guide[] = [
       "A practical process for moving from a friendly reminder to firmer follow-ups and formal action when an invoice remains unpaid.",
     published: "2026-08-03",
   },
+  {
+    slug: "client-missed-payment-promise",
+    title: "What to Do When a Client Promises Payment and Misses the Date",
+    description:
+      "A client gave you a payment date, but the money never arrived. Learn how to follow up, record the missed commitment and decide what should happen next.",
+    published: "2026-08-07",
+  },
+  {
+    slug: "late-payment-fees-uk",
+    title: "Can You Charge a Late Payment Fee on an Unpaid Invoice? A UK Guide",
+    description:
+      "What you can add to an overdue B2B invoice under UK law — late payment terms you agreed in advance, statutory interest you did not have to agree at all, and what charging either one actually achieves.",
+    published: "2026-08-21",
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {

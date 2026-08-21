@@ -190,6 +190,16 @@ export default function RecoverOverdueInvoiceGuide() {
                   already stated in the contract. Do not invent penalties or
                   quote rules you have not checked.
                 </p>
+                <p>
+                  If you are invoicing a UK business, you may also be able to
+                  add interest and fixed compensation even without a late
+                  payment clause — see{" "}
+                  <Link href="/guides/late-payment-fees-uk">
+                    whether you can charge a late payment fee on an unpaid
+                    invoice
+                  </Link>
+                  .
+                </p>
               </section>
 
               <section>
@@ -285,7 +295,11 @@ export default function RecoverOverdueInvoiceGuide() {
                   Treat a second promise with more scepticism than the first. It
                   is reasonable to ask for part of the balance now, or a short
                   payment plan in writing, rather than another open-ended
-                  assurance.
+                  assurance. For a fuller walkthrough, see{" "}
+                  <Link href="/guides/client-missed-payment-promise">
+                    what to do when a client misses a promised payment date
+                  </Link>
+                  .
                 </p>
               </section>
 

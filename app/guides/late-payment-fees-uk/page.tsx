@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import GuideJsonLd from "@/components/GuideJsonLd";
 import Prose from "@/components/Prose";
 import AppStoreButton from "@/components/AppStoreButton";
 import CtaButton from "@/components/CtaButton";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function LatePaymentFeesUkGuide() {
   return (
     <div className="bg-page py-12 sm:py-16 lg:py-20">
+      <GuideJsonLd guide={guide} />
       <PageContainer>
         {/* ~68 characters per line — comfortable for long-form reading. */}
         <div className="mx-auto max-w-[calc(68ch+5rem)]">

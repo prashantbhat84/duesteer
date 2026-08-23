@@ -15,6 +15,12 @@ export type Guide = {
   description: string;
   /** Publication date as an ISO calendar date (YYYY-MM-DD). */
   published: string;
+  /**
+   * Last substantive revision, as an ISO calendar date. Optional — set it when
+   * a guide is meaningfully rewritten and the Article JSON-LD will start
+   * emitting `dateModified`.
+   */
+  updated?: string;
 };
 
 export const GUIDES: Guide[] = [

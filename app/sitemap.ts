@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     })),
     { path: "/support", changeFrequency: "yearly", priority: 0.6 },
+    /* Plain-text site briefing for LLM crawlers and answer engines. */
+    { path: "/llms.txt", changeFrequency: "monthly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   ];

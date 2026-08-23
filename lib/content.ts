@@ -168,6 +168,11 @@ export const FAQS: Faq[] = [
       "Duesteer is built for freelancers, consultants, contractors, agencies, and small service businesses — anyone who invoices clients and occasionally has to chase late payments.",
   },
   {
+    question: "Is Duesteer for UK businesses?",
+    answer:
+      "Yes. Duesteer is built around UK late-payment practice, including statutory interest and fixed compensation under the Late Payment of Commercial Debts (Interest) Act 1998, and the letter before action that precedes a court claim. The escalation workflow itself works just as well when your client is based elsewhere.",
+  },
+  {
     question: "Does Duesteer send emails automatically?",
     answer:
       "No. Duesteer helps you generate professional reminder and escalation emails, but you review and send them yourself from your own email app. You stay in full control of every message.",

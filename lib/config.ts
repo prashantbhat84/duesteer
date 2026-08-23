@@ -33,7 +33,7 @@ export const SITE_NAME = "Duesteer";
 export const BRAND_ICON = "/brand/duesteer-logo.svg";
 
 export const SITE_DESCRIPTION =
-  "Duesteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
+  "Duesteer helps UK freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
 
 /** Primary navigation links used by the header and footer. */
 export const NAV_LINKS = [

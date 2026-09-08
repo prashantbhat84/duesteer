@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-16 lg:px-8 lg:py-24">
           <div className="max-w-xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-brand-line bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-strong">
-              Guided invoice recovery for iOS — built for the UK
+              Guided invoice recovery for iOS
             </p>
             <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-ink text-balance sm:text-5xl">
               Stop improvising. Recover overdue invoices with a clear process.

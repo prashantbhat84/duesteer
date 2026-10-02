@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AppStoreButton from "./AppStoreButton";
+import NavAppStoreButton from "./NavAppStoreButton";
 import NavLinks from "./NavLinks";
 
 /**
@@ -67,9 +67,9 @@ export default function MobileNav() {
             className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4 sm:px-6"
           >
             <NavLinks layout="stacked" onNavigate={() => setOpen(false)} />
-            <div className="mt-3">
-              <AppStoreButton size="lg" className="w-full" note={false} />
-            </div>
+            {/* Spacing lives on the button so nothing is left behind on the
+                routes where the CTA is hidden. */}
+            <NavAppStoreButton size="lg" className="mt-3 w-full" note={false} />
           </nav>
         </div>
       ) : null}

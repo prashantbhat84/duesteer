@@ -1,11 +1,14 @@
 import Wordmark from "./Wordmark";
 import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
-import AppStoreButton from "./AppStoreButton";
+import NavAppStoreButton from "./NavAppStoreButton";
 
 /**
  * Sticky site header. Desktop shows inline nav + App Store CTA; below `md`
  * it collapses into the MobileNav menu.
+ *
+ * The App Store CTA goes through NavAppStoreButton, which hides it on the
+ * routes that carry no marketing (see lib/marketing.ts).
  */
 export default function Header() {
   return (
@@ -18,7 +21,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <AppStoreButton note={false} />
+          <NavAppStoreButton note={false} />
         </div>
 
         <MobileNav />

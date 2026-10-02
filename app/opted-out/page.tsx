@@ -32,7 +32,7 @@ type Status = (typeof STATUSES)[number];
 const COPY: Record<Status, { title: string; body: string }> = {
   done: {
     title: "You've been opted out",
-    body: `You won't receive any more emails from ${SITE_NAME}. Sorry for the interruption.`,
+    body: `You won't receive any more emails from ${SITE_NAME}. Thanks for letting us know.`,
   },
   already: {
     title: "You're already opted out",

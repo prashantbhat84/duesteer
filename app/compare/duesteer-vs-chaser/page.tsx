@@ -494,7 +494,7 @@ export default function DuesteerVsChaserComparison() {
                 </ul>
               </section>
 
-              <section>
+              <div>
                 <h2>Final verdict</h2>
                 <p>
                   The choice depends less on which product has more features and
@@ -512,11 +512,14 @@ export default function DuesteerVsChaserComparison() {
                   Choose Chaser when you need to automate receivables across a
                   larger operation, connect accounting systems and collect
                   payment. Duesteer is not intended to replace a full AR platform
-                  for a business already running one, but or an individual or small service business managing a smaller number of overdue invoices, Duesteer provides the focused recovery workflow without requiring a full AR platform..
+                  for a business already running one. For an individual or small
+                  service business managing a smaller number of overdue invoices,
+                  Duesteer provides the focused recovery workflow without
+                  requiring a full AR platform.
                 </p>
-              </section>
+              </div>
 
-              <section>
+              <div>
                 <h2>Information sources</h2>
                 <p>
                   Chaser feature and pricing information in this comparison was
@@ -590,7 +593,7 @@ export default function DuesteerVsChaserComparison() {
                     </a>
                   </li>
                 </ul>
-              </section>
+              </div>
             </Prose>
 
             <div className="mt-8 rounded-card border border-line bg-surface-tint p-6 sm:p-8">

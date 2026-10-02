@@ -4,8 +4,10 @@ import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaButton from "@/components/CtaButton";
 import AppStoreButton from "@/components/AppStoreButton";
+import JsonLd from "@/components/JsonLd";
 import { SUPPORT_EMAIL } from "@/lib/config";
 import { FAQS } from "@/lib/content";
+import { faqPageSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(FAQS)} />
+
       <Section as="section" tone="muted" className="pb-10">
         <SectionHeading
           as="h1"

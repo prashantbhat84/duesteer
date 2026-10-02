@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import FeatureCard from "@/components/FeatureCard";
@@ -9,7 +10,9 @@ import EscalationLadder from "@/components/EscalationLadder";
 import CtaButton from "@/components/CtaButton";
 import AppStoreButton from "@/components/AppStoreButton";
 import AppScreenshot from "@/components/AppScreenshot";
+import JsonLd from "@/components/JsonLd";
 import { PRICING, SITE_NAME } from "@/lib/config";
+import { faqPageSchema, softwareApplicationSchema } from "@/lib/jsonld";
 import {
   AUDIENCES,
   FAQ_TEASER,
@@ -34,6 +37,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={softwareApplicationSchema()} />
+      <JsonLd data={faqPageSchema(FAQ_TEASER)} />
+
       {/* Hero — real product screenshots carry the visual weight. */}
       <section className="border-b border-line bg-surface">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-16 lg:px-8 lg:py-24">
@@ -353,10 +359,30 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-start">
             <AppStoreButton size="lg" tone="dark" />
             <CtaButton href="/features" variant="secondary" size="lg">
-              Learn more
+              Explore Duesteer features
             </CtaButton>
           </div>
         </div>
+      </section>
+      <section aria-label="Product Hunt" className="bg-surface-muted">
+        <PageContainer className="py-10 text-center">
+          <a
+            href="https://www.producthunt.com/products/duesteer?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-duesteer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1223940&theme=light&t=1786857510893"
+              alt="Duesteer on Product Hunt"
+              width={250}
+              height={54}
+              loading="lazy"
+              className="h-auto w-[250px] max-w-full"
+            />
+          </a>
+        </PageContainer>
       </section>
     </>
   );

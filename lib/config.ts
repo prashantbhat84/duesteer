@@ -5,9 +5,9 @@
  * constant so it can be swapped for the real App Store URL in one place,
  * without searching the codebase.
  *
- * The app is still awaiting App Store approval, so this is empty and the CTA
- * renders a disabled "Coming Soon" state. At launch, paste the real URL here
- * and flip PUBLISHED in components/AppStoreButton.tsx — nothing else.
+ * The app is live on the App Store, so this holds the real listing URL and the
+ * CTA renders an enabled "Download on the App Store" state. If the listing URL
+ * ever changes, update it here — nothing else needs to change.
  */
 export const APP_STORE_URL = "https://apps.apple.com/in/app/duesteer-invoice-recovery/id6778435778";
 
@@ -33,7 +33,7 @@ export const SITE_NAME = "Duesteer";
 export const BRAND_ICON = "/brand/duesteer-logo.svg";
 
 export const SITE_DESCRIPTION =
-  "Duesteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
+  "Duesteer helps UK freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
 
 /** Primary navigation links used by the header and footer. */
 export const NAV_LINKS = [

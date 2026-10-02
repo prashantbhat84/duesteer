@@ -5,6 +5,8 @@ import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
+import { organisationSchema } from "@/lib/jsonld";
 import {
   SITE_DESCRIPTION as DEFAULT_SITE_DESCRIPTION,
   SITE_NAME as DEFAULT_SITE_NAME,
@@ -76,7 +78,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col bg-white text-slate-900">
+        {/* Site-wide publisher identity for search and answer engines. */}
+        <JsonLd data={organisationSchema()} />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>

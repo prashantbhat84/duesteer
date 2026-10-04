@@ -105,7 +105,7 @@ const TABLE_ROWS: { area: string; duesteer: string; chaser: string }[] = [
   {
     area: "Recovery history",
     duesteer:
-      "Full history tied to the invoice, exportable as a PDF on Premium.",
+      "Full history tied to the invoice, exportable as a PDF.",
     chaser:
       "Audit-ready timeline of correspondence, with reporting across the receivables ledger.",
   },
@@ -350,7 +350,7 @@ export default function DuesteerVsChaserComparison() {
                   The result reads as a sequence of events rather than a pile of
                   reminders. When you later write a final notice, you have dates,
                   commitments and outcomes tied to the invoice, exportable as a
-                  PDF on Premium.
+                  PDF.
                 </p>
                 <h3>Chaser</h3>
                 <p>

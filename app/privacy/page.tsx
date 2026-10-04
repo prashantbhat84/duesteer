@@ -20,7 +20,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated="July 12, 2026"
+      lastUpdated="October 4, 2026"
       intro={`This Privacy Policy explains how ${SITE_NAME} handles information in connection with the ${SITE_NAME} iOS app and this website. We designed ${SITE_NAME} to keep your invoice data on your device and to keep you in control.`}
     >
       <h2>Overview</h2>
@@ -77,6 +77,20 @@ export default function PrivacyPage() {
         If you contact us for support, you do so by email. We use the contents
         of your message and your email address only to respond to and resolve
         your request.
+      </p>
+
+      <h2>Business outreach</h2>
+      <p>
+        We occasionally email businesses that may benefit from {SITE_NAME}. We
+        use business contact details that are publicly available, such as
+        company websites and public business registers (for example, Companies
+        House in the UK), and we rely on legitimate interest as our lawful
+        basis. We store only the
+        contact&apos;s name, role, business email, company name, website domain
+        and a short note on why we got in touch. Every email includes an opt-out
+        link; once you opt out, we add your address to a suppression list and
+        never contact you again. To ask what we hold about you or to have it
+        deleted, email <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
 
       <h2>Children</h2>

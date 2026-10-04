@@ -9,7 +9,7 @@
  * CTA renders an enabled "Download on the App Store" state. If the listing URL
  * ever changes, update it here — nothing else needs to change.
  */
-export const APP_STORE_URL = "https://apps.apple.com/in/app/duesteer-invoice-recovery/id6778435778";
+export const APP_STORE_URL = "https://apps.apple.com/app/duesteer-invoice-recovery/id6778435778";
 
 /** Canonical production URL for the marketing site (update at launch). */
 export const SITE_URL = "https://duesteer.app";
@@ -33,7 +33,7 @@ export const SITE_NAME = "Duesteer";
 export const BRAND_ICON = "/brand/duesteer-logo.svg";
 
 export const SITE_DESCRIPTION =
-  "Duesteer helps UK freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
+  "Duesteer helps freelancers and small businesses recover overdue invoices with a clear, professional escalation process — track unpaid invoices, choose the right next step, and send payment follow-ups without guesswork.";
 
 /** Primary navigation links used by the header and footer. */
 export const NAV_LINKS = [
@@ -63,4 +63,23 @@ export const PRICING = {
   freeInvoiceLimit: 2,
   monthly: "$9.99",
   yearly: "$59.99",
+} as const;
+
+/**
+ * Plan feature lists, shared by the homepage pricing cards and /pricing so the
+ * two can't drift. PDF export is on Free; Premium only lifts the invoice limit.
+ */
+export const PLAN_FEATURES = {
+  free: [
+    `Up to ${PRICING.freeInvoiceLimit} invoices`,
+    "Full guided escalation workflow",
+    "Professional email templates",
+    "All client communication styles",
+    "Dispute and payment-promise tracking",
+    "Smart notifications",
+    "Recovery history",
+    "PDF recovery reports",
+    "External Action guidance",
+  ],
+  premium: ["Unlimited invoices", "Access to future premium features"],
 } as const;

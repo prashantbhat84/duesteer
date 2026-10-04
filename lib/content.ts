@@ -1,3 +1,5 @@
+import { SUPPORT_EMAIL } from "@/lib/config";
+
 /**
  * Shared, structured content used across pages so copy stays consistent.
  * Kept free of any unsupported product claims (no auto-sending, no bank/
@@ -154,31 +156,38 @@ export const AUDIENCES: { title: string; description: string }[] = [
 export type Faq = {
   question: string;
   answer: string;
+  /** Also shown in the homepage FAQ teaser. */
+  featured?: boolean;
 };
 
 export const FAQS: Faq[] = [
   {
     question: "What is Duesteer?",
+    featured: true,
     answer:
       "Duesteer is an iOS app that helps you recover overdue invoices with a clear, professional escalation process. Instead of sending random reminders, you follow a guided ladder of steps and generate appropriate follow-up emails.",
   },
   {
     question: "Who is it for?",
+    featured: true,
     answer:
       "Duesteer is built for freelancers, consultants, contractors, agencies, and small service businesses — anyone who invoices clients and occasionally has to chase late payments.",
   },
   {
-    question: "Is Duesteer for UK businesses?",
+    question: "Does Duesteer work in my country?",
+    featured: true,
     answer:
-      "Yes. Duesteer is built around UK late-payment practice, including statutory interest and fixed compensation under the Late Payment of Commercial Debts (Interest) Act 1998, and the letter before action that precedes a court claim. The escalation workflow itself works just as well when your client is based elsewhere.",
+      "Yes. Duesteer works wherever you invoice clients. The escalation workflow (reminders, final notice, formal demand, and recording disputes and payment promises) isn't tied to any one country's legal system. Formal steps such as demand letters, late fees, or court claims vary by jurisdiction, so check the rules where you and your client operate before relying on them. Duesteer guides the process but does not provide legal advice.",
   },
   {
     question: "Does Duesteer send emails automatically?",
+    featured: true,
     answer:
       "No. Duesteer helps you generate professional reminder and escalation emails, but you review and send them yourself from your own email app. You stay in full control of every message.",
   },
   {
     question: "Does Duesteer connect to accounting software?",
+    featured: true,
     answer:
       "No. Duesteer does not connect to accounting software, bank accounts, or payment processors. You add invoices manually, which keeps your data self-contained and under your control.",
   },
@@ -205,7 +214,7 @@ export const FAQS: Faq[] = [
   {
     question: "Can I export invoice recovery history?",
     answer:
-      "Yes. Premium lets you export a recovery history PDF for any invoice — useful for your own records or to share with an accountant.",
+      "Yes. PDF export is available on all plans, including Free. You can export a recovery history PDF for any invoice — useful for your own records or to share with an accountant.",
   },
   {
     question: "Is Duesteer available on Android?",
@@ -220,9 +229,9 @@ export const FAQS: Faq[] = [
   {
     question: "How do I contact support?",
     answer:
-      "You can email the Duesteer team at duesteer.app@gmail.com. See the Support page for help with bugs, feature requests, and billing questions.",
+      `You can email the Duesteer team at ${SUPPORT_EMAIL}. See the Support page for help with bugs, feature requests, and billing questions.`,
   },
 ];
 
-/** A short subset of FAQs used for the homepage teaser. */
-export const FAQ_TEASER = FAQS.slice(0, 5);
+/** The featured subset of FAQS, used for the homepage teaser. */
+export const FAQ_TEASER = FAQS.filter((faq) => faq.featured);

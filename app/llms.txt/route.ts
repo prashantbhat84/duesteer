@@ -45,7 +45,7 @@ ${SITE_DESCRIPTION}
 
 ## Who it's for
 
-UK freelancers, contractors, agencies and small service businesses that invoice clients and chase late payment.
+Freelancers, contractors, agencies and small service businesses that invoice clients and chase late payment.
 
 ## What it does
 
@@ -68,7 +68,7 @@ iOS only. Free for up to ${PRICING.freeInvoiceLimit} invoices; Premium is ${PRIC
 
 ## Jurisdiction
 
-Built around UK late-payment practice: statutory interest and fixed compensation under the Late Payment of Commercial Debts (Interest) Act 1998, and the letter before action that precedes a court claim. The workflow itself works for clients anywhere.
+Works wherever you invoice clients. The escalation workflow is not tied to any one country's legal system. Formal steps such as demand letters, late fees or court claims vary by jurisdiction, so check the local rules before relying on them.
 
 ## Links
 

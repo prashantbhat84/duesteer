@@ -15,10 +15,10 @@ export const APP_STORE_URL = "https://apps.apple.com/in/app/duesteer-invoice-rec
 export const SITE_URL = "https://duesteer.app";
 
 /** Support / contact email placeholder. */
-export const SUPPORT_EMAIL = "duesteer.app@gmail.com";
+export const SUPPORT_EMAIL = "support@duesteer.app";
 
 /** Email for privacy-related questions. */
-export const PRIVACY_EMAIL = "duesteer.app@gmail.com";
+export const PRIVACY_EMAIL = "privacy@duesteer.app";
 
 export const SITE_NAME = "Duesteer";
 

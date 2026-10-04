@@ -4,7 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import PricingCard from "@/components/PricingCard";
 import AppStoreButton from "@/components/AppStoreButton";
 import CtaButton from "@/components/CtaButton";
-import { PRICING } from "@/lib/config";
+import { PLAN_FEATURES, PRICING } from "@/lib/config";
 import { FAQS } from "@/lib/content";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -34,17 +34,7 @@ export default function PricingPage() {
             name="Free"
             price="$0"
             description="Use the complete Duesteer launch experience"
-            features={[
-              `Manage up to ${PRICING.freeInvoiceLimit} invoices`,
-              "Full guided escalation workflow",
-              "Professional email templates",
-              "All client communication styles",
-              "Dispute and payment-promise tracking",
-              "Smart notifications",
-              "Recovery history",
-              "PDF recovery reports",
-              "External Action guidance",
-            ]}
+            features={[...PLAN_FEATURES.free]}
           />
           <PricingCard
             name="Premium"
@@ -54,11 +44,7 @@ export default function PricingPage() {
               { amount: PRICING.yearly, period: "/ year" },
             ]}
             description="Recover invoices without limits"
-            features={[
-              "Everything included in Free",
-              "Unlimited invoices",
-              "Access to future premium features",
-            ]}
+            features={["Everything included in Free", ...PLAN_FEATURES.premium]}
           />
         </div>
 

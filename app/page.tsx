@@ -11,7 +11,7 @@ import CtaButton from "@/components/CtaButton";
 import AppStoreButton from "@/components/AppStoreButton";
 import AppScreenshot from "@/components/AppScreenshot";
 import JsonLd from "@/components/JsonLd";
-import { PRICING, SITE_NAME } from "@/lib/config";
+import { PLAN_FEATURES, PRICING, SITE_NAME } from "@/lib/config";
 import { faqPageSchema, softwareApplicationSchema } from "@/lib/jsonld";
 import {
   AUDIENCES,
@@ -277,12 +277,7 @@ export default function HomePage() {
             price="$0"
             period="forever"
             description={`Manage up to ${PRICING.freeInvoiceLimit} invoices.`}
-            features={[
-              `Up to ${PRICING.freeInvoiceLimit} invoices`,
-              "Guided escalation workflow",
-              "Professional email templates",
-              "Basic notifications",
-            ]}
+            features={[...PLAN_FEATURES.free]}
             cta={
               <AppStoreButton variant="secondary" className="w-full" />
             }
@@ -293,12 +288,7 @@ export default function HomePage() {
             period="/ month"
             featured
             description="The full recovery workflow, billed monthly."
-            features={[
-              "Unlimited invoices",
-              "Full escalation workflow",
-              "Recovery history & PDF exports",
-              "All client communication styles",
-            ]}
+            features={["Everything in Free", ...PLAN_FEATURES.premium]}
             cta={<AppStoreButton className="w-full" />}
           />
           <PricingCard
@@ -306,11 +296,11 @@ export default function HomePage() {
             price={PRICING.yearly}
             period="/ year"
             description="The full workflow at the best value."
+            // TODO: re-add "Priority access to improvements" only once it is a
+            // confirmed, delivered benefit — /pricing does not list it.
             features={[
               "Everything in Premium Monthly",
               "Best value for regular invoicing",
-              "Priority access to improvements",
-              "Recovery history & PDF exports",
             ]}
             cta={<AppStoreButton variant="secondary" className="w-full" />}
           />

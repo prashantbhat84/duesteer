@@ -104,7 +104,7 @@ export default function ClientMissedPaymentPromiseGuide() {
                 </p>
                 <p>
                   &ldquo;Thanks for the update. Confirming invoice 1042 for
-                  $2,400 will be paid on 14 August. I&apos;ll mark it as
+                  $2,400 will be paid on August 14. I&apos;ll mark it as
                   expected on that date.&rdquo;
                 </p>
                 <p>

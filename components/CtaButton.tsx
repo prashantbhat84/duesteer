@@ -22,6 +22,15 @@ const sizes: Record<Size, string> = {
   lg: "min-h-13 px-6 text-base",
 };
 
+/** Class names for a CTA-styled element that isn't a link, e.g. a form button. */
+export function ctaButtonClassName(
+  variant: Variant = "primary",
+  size: Size = "md",
+  className = "",
+) {
+  return `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+}
+
 type CtaButtonProps = {
   href: string;
   children: ReactNode;
@@ -52,7 +61,7 @@ export default function CtaButton({
   className = "",
   ...rest
 }: CtaButtonProps) {
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+  const classes = ctaButtonClassName(variant, size, className);
 
   if (disabled) {
     return (

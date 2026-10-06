@@ -8,10 +8,11 @@ import { OPT_OUT_COPY, isOptOutStatus, type OptOutStatus } from "@/lib/optOut";
 /*
  * Landing page for the "Opt out" link in cold emails.
  *
- * With ?id=<prospect id>, the opt-out is performed in the browser by
- * OptOutRunner, which POSTs to the Supabase Edge Function after the page has
- * loaded. The server never calls Supabase: email security scanners fetch
- * links automatically, and a plain fetch must not opt anyone out.
+ * With ?id=<prospect id>, OptOutRunner asks the visitor to confirm and POSTs
+ * to the Supabase Edge Function only when they click the button. Neither the
+ * server nor page load calls Supabase: email security scanners open links
+ * automatically, some in headless browsers that run JavaScript, and that must
+ * not opt anyone out.
  *
  * Without an id, the page simply shows the copy for ?status=<status>.
  *

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import OptOutCard from "@/components/OptOutCard";
 import { ctaButtonClassName } from "@/components/CtaButton";
@@ -17,49 +17,82 @@ import {
  *
  * Email security scanners open links automatically, some in headless browsers
  * that run JavaScript, so the opt-out must not happen on the server or on page
- * load. The POST is sent only when the visitor clicks "Confirm opt-out".
+ * load. On load we only send a read-only check ({ id, check: true }), which
+ * never changes data, so visitors who are already opted out see that straight
+ * away. The opt-out itself is sent only when the visitor clicks
+ * "Confirm opt-out".
  */
 export default function OptOutRunner({ id }: { id: string }) {
   const router = useRouter();
-  const [status, setStatus] = useState<OptOutStatus | null>(null);
+  // "checking" until the read-only check answers, then "confirm" to show the
+  // button, or the final status to show its copy.
+  const [phase, setPhase] = useState<"checking" | "confirm" | OptOutStatus>(
+    "checking",
+  );
   const [sending, setSending] = useState(false);
+  // Strict mode runs effects twice in development; send the check only once.
+  const checked = useRef(false);
   // Guards against a double click sending the POST twice before the
   // disabled state has rendered.
   const sent = useRef(false);
 
-  async function optOut(): Promise<OptOutStatus> {
+  /** POSTs to the Edge Function and returns its `status`, if any. */
+  async function post(body: object): Promise<unknown> {
     try {
       const response = await fetch(OPT_OUT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify(body),
       });
       const data: unknown = await response.json();
-      const result =
-        data && typeof data === "object" && "status" in data
-          ? data.status
-          : undefined;
-      return isOptOutStatus(result) ? result : "error";
+      return data && typeof data === "object" && "status" in data
+        ? data.status
+        : undefined;
     } catch {
       // Network failure or a non-JSON response.
-      return "error";
+      return undefined;
     }
   }
+
+  function finish(result: OptOutStatus) {
+    setPhase(result);
+    // Drop the id from the URL so a refresh shows the result without
+    // offering the opt-out again.
+    router.replace(`/opted-out?status=${result}`, { scroll: false });
+  }
+
+  useEffect(() => {
+    if (checked.current) return;
+    checked.current = true;
+
+    post({ id, check: true }).then((result) => {
+      if (result === "already" || result === "invalid") {
+        finish(result);
+      } else {
+        // "pending", or the check failed: show the button so a real person
+        // can still opt out.
+        setPhase("confirm");
+      }
+    });
+    // Runs once per mount; `id` comes from the URL and doesn't change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function handleConfirm() {
     if (sent.current) return;
     sent.current = true;
     setSending(true);
 
-    const result = await optOut();
-    setStatus(result);
-    // Drop the id from the URL so a refresh shows the result without
-    // offering the opt-out again.
-    router.replace(`/opted-out?status=${result}`, { scroll: false });
+    const result = await post({ id });
+    finish(isOptOutStatus(result) ? result : "error");
   }
 
-  if (status) {
-    const { title, body } = OPT_OUT_COPY[status];
+  if (phase === "checking") {
+    return <OptOutCard title="Checking…" showButton={false} />;
+  }
+
+  if (phase !== "confirm") {
+    const { title, body } = OPT_OUT_COPY[phase];
     return <OptOutCard title={title} body={body} />;
   }
 

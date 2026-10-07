@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import OptOutCard from "@/components/OptOutCard";
+import OptOutReason from "@/components/OptOutReason";
 import { ctaButtonClassName } from "@/components/CtaButton";
 import { SITE_NAME } from "@/lib/config";
 import {
   OPT_OUT_COPY,
-  OPT_OUT_ENDPOINT,
   isOptOutStatus,
+  postOptOut,
   type OptOutStatus,
 } from "@/lib/optOut";
 
@@ -21,9 +21,11 @@ import {
  * never changes data, so visitors who are already opted out see that straight
  * away. The opt-out itself is sent only when the visitor clicks
  * "Confirm opt-out".
+ *
+ * Once the opt-out is confirmed ("done" or "already"), an optional
+ * "why?" step (OptOutReason) appears below the confirmation.
  */
 export default function OptOutRunner({ id }: { id: string }) {
-  const router = useRouter();
   // "checking" until the read-only check answers, then "confirm" to show the
   // button, or the final status to show its copy.
   const [phase, setPhase] = useState<"checking" | "confirm" | OptOutStatus>(
@@ -38,27 +40,16 @@ export default function OptOutRunner({ id }: { id: string }) {
 
   /** POSTs to the Edge Function and returns its `status`, if any. */
   async function post(body: object): Promise<unknown> {
-    try {
-      const response = await fetch(OPT_OUT_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      const data: unknown = await response.json();
-      return data && typeof data === "object" && "status" in data
-        ? data.status
-        : undefined;
-    } catch {
-      // Network failure or a non-JSON response.
-      return undefined;
-    }
+    return (await postOptOut(body)).status;
   }
 
   function finish(result: OptOutStatus) {
     setPhase(result);
     // Drop the id from the URL so a refresh shows the result without
-    // offering the opt-out again.
-    router.replace(`/opted-out?status=${result}`, { scroll: false });
+    // offering the opt-out again. The native History API updates the URL
+    // without re-rendering the server page, which would unmount this
+    // component and lose the id the optional reason step needs.
+    window.history.replaceState(null, "", `/opted-out?status=${result}`);
   }
 
   useEffect(() => {
@@ -93,7 +84,13 @@ export default function OptOutRunner({ id }: { id: string }) {
 
   if (phase !== "confirm") {
     const { title, body } = OPT_OUT_COPY[phase];
-    return <OptOutCard title={title} body={body} />;
+    return (
+      <OptOutCard title={title} body={body}>
+        {phase === "done" || phase === "already" ? (
+          <OptOutReason id={id} />
+        ) : null}
+      </OptOutCard>
+    );
   }
 
   return (

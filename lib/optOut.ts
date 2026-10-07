@@ -14,11 +14,11 @@ export type OptOutStatus = (typeof OPT_OUT_STATUSES)[number];
 
 export const OPT_OUT_COPY: Record<OptOutStatus, { title: string; body: string }> = {
   done: {
-    title: "You've been opted out",
-    body: `You won't receive any more emails from ${SITE_NAME}. Thanks for letting us know.`,
+    title: "You're unsubscribed",
+    body: "You won't hear from us again.",
   },
   already: {
-    title: "You're already opted out",
+    title: "You're already unsubscribed",
     body: `You won't receive any more emails from ${SITE_NAME}.`,
   },
   invalid: {
@@ -40,7 +40,8 @@ export function isOptOutStatus(value: unknown): value is OptOutStatus {
 
 /**
  * Optional "why did you opt out?" answers, accepted by the Edge Function only
- * after the opt-out has happened. Values must match the function exactly.
+ * after the opt-out has happened. Sending one again overwrites the earlier
+ * one. Values must match the function exactly.
  */
 export const OPT_OUT_REASONS = [
   { value: "not_relevant", label: "Not relevant to my work" },

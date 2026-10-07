@@ -1,5 +1,8 @@
 import type { OptOutResponse } from "@/lib/optOut";
 
+// Ids whose opt-out has already failed once on this page load.
+const failedOnce = new Set<string>();
+
 /**
  * DEVELOPMENT ONLY. Stands in for the opt-out Edge Function on localhost,
  * where the real one answers 403 because of CORS. Imported only behind a
@@ -8,6 +11,8 @@ import type { OptOutResponse } from "@/lib/optOut";
  *
  * Special ids for clicking through the other paths:
  * - /opted-out?id=mock-already       the check reports "already"
+ * - /opted-out?id=mock-optout-fail   the first opt-out attempt fails to send;
+ *                                    trying again succeeds
  * - /opted-out?id=mock-reason-409    the reason is rejected with 409
  * - /opted-out?id=mock-reason-400    the reason is rejected with 400
  * - /opted-out?id=mock-reason-403    the reason is rejected with 403 (CORS)
@@ -30,6 +35,11 @@ export async function mockOptOut(body: object): Promise<OptOutResponse> {
   }
 
   if (request.reason === undefined) {
+    if (id === "mock-optout-fail" && !failedOnce.has(id)) {
+      failedOnce.add(id);
+      console.error("[opt-out mock] simulated opt-out failure");
+      return { httpStatus: null, status: undefined };
+    }
     return { httpStatus: 200, status: "done" };
   }
 

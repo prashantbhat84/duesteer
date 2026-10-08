@@ -48,7 +48,7 @@ export const OPT_OUT_REASONS = [
   { value: "no_iphone", label: "I don't use an iPhone" },
   { value: "want_web", label: "I'd use a web version" },
   { value: "have_tool", label: "I already use something for this" },
-  { value: "not_now", label: "Not right now" },
+  { value: "not_now", label: "Not something I need right now" },
   { value: "other", label: "Other" },
 ] as const;
 

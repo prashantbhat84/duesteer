@@ -145,7 +145,7 @@ export default function OptOutRunner({ id }: { id: string }) {
           </button>
         }
       >
-        <p className="mt-8 text-center text-body">
+        <p className="mt-8 text-center text-ink/85">
           or unsubscribe and tell us why:
         </p>
         <ReasonButtons

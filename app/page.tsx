@@ -10,6 +10,7 @@ import EscalationLadder from "@/components/EscalationLadder";
 import CtaButton from "@/components/CtaButton";
 import AppStoreButton from "@/components/AppStoreButton";
 import AppScreenshot from "@/components/AppScreenshot";
+import WaitlistForm from "@/components/WaitlistForm";
 import JsonLd from "@/components/JsonLd";
 import { PLAN_FEATURES, PRICING, SITE_NAME } from "@/lib/config";
 import { faqPageSchema, softwareApplicationSchema } from "@/lib/jsonld";
@@ -45,7 +46,7 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-16 lg:px-8 lg:py-24">
           <div className="max-w-xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-brand-line bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-strong">
-              Guided invoice recovery for iOS
+              For iPhone · Web version coming soon
             </p>
             <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-ink text-balance sm:text-5xl">
               Stop improvising. Recover overdue invoices with a clear process.
@@ -61,6 +62,12 @@ export default function HomePage() {
                 See how it works
               </CtaButton>
             </div>
+            <WaitlistForm
+              placement="hero"
+              showFor="non-ios"
+              heading="Not on iPhone? Get notified when the web version launches"
+              className="mt-6 max-w-md"
+            />
             <p className="mt-6 text-sm leading-relaxed text-muted">
               Free to manage up to {PRICING.freeInvoiceLimit} invoices · No
               account required to get started.
@@ -352,6 +359,13 @@ export default function HomePage() {
               Explore Duesteer features
             </CtaButton>
           </div>
+          <WaitlistForm
+            placement="final-cta"
+            tone="dark"
+            showFor="non-ios"
+            heading="Not on iPhone? Get notified when the web version launches"
+            className="mx-auto mt-10 max-w-md text-left"
+          />
         </div>
       </section>
       <section aria-label="Product Hunt" className="bg-surface-muted">

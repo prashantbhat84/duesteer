@@ -156,9 +156,16 @@ export const AUDIENCES: { title: string; description: string }[] = [
 export type Faq = {
   question: string;
   answer: string;
+  /** Optional follow-on link, rendered after the answer. */
+  link?: { href: string; label: string };
   /** Also shown in the homepage FAQ teaser. */
   featured?: boolean;
 };
+
+/** Shared by the Android and web/Windows questions. */
+const WEB_VERSION_ANSWER =
+  "Not yet. Duesteer is on iPhone today, and a web version that works in any browser is in development. Join the waitlist to hear when it launches.";
+const WEB_VERSION_LINK = { href: "/web", label: "Join the web version waitlist" };
 
 export const FAQS: Faq[] = [
   {
@@ -218,8 +225,13 @@ export const FAQS: Faq[] = [
   },
   {
     question: "Is Duesteer available on Android?",
-    answer:
-      "Duesteer is currently an iOS app. There is no Android version at this time.",
+    answer: WEB_VERSION_ANSWER,
+    link: WEB_VERSION_LINK,
+  },
+  {
+    question: "Is there a web or Windows version?",
+    answer: WEB_VERSION_ANSWER,
+    link: WEB_VERSION_LINK,
   },
   {
     question: "How much does Duesteer cost?",

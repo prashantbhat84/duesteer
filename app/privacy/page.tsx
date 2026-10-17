@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { PRIVACY_EMAIL, SITE_NAME } from "@/lib/config";
+import { PRIVACY_EMAIL, SITE_NAME, SUPPORT_EMAIL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated="October 4, 2026"
+      lastUpdated="October 17, 2026"
       intro={`This Privacy Policy explains how ${SITE_NAME} handles information in connection with the ${SITE_NAME} iOS app and this website. We designed ${SITE_NAME} to keep your invoice data on your device and to keep you in control.`}
     >
       <h2>Overview</h2>
@@ -77,6 +77,17 @@ export default function PrivacyPage() {
         If you contact us for support, you do so by email. We use the contents
         of your message and your email address only to respond to and resolve
         your request.
+      </p>
+
+      <h2 id="web-waitlist">Web version waitlist</h2>
+      <p>
+        If you join the waitlist for the {SITE_NAME} web version, we store your
+        email address, your device platform (for example Windows or Android, as
+        reported by your browser) and the page where you signed up. We use it
+        for one thing only: to send you a single email when the web version
+        launches. We delete your details after that email is sent, or sooner if
+        you ask us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        Waitlist details are not shared with anyone else.
       </p>
 
       <h2>Business outreach</h2>

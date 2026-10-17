@@ -64,7 +64,7 @@ Freelancers, contractors, agencies and small service businesses that invoice cli
 
 ## Platform and pricing
 
-iOS only. Free for up to ${PRICING.freeInvoiceLimit} invoices; Premium is ${PRICING.monthly} per month or ${PRICING.yearly} per year via Apple in-app purchase (prices vary by region).
+iPhone (iOS) today; a web version is in development (waitlist: ${url("/web")}). Free for up to ${PRICING.freeInvoiceLimit} invoices; Premium is ${PRICING.monthly} per month or ${PRICING.yearly} per year via Apple in-app purchase (prices vary by region).
 
 ## Jurisdiction
 

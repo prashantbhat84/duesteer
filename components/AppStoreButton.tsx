@@ -1,3 +1,5 @@
+"use client";
+import { track } from "@vercel/analytics";
 import { APP_STORE_URL, SITE_NAME } from "@/lib/config";
 import CtaButton, { AppleIcon } from "./CtaButton";
 
@@ -23,6 +25,7 @@ export default function AppStoreButton({
   className = "",
   note = true,
   tone = "light",
+  placement= "unknown",
 }: {
   size?: "md" | "lg";
   variant?: "primary" | "secondary";
@@ -31,6 +34,7 @@ export default function AppStoreButton({
   note?: boolean;
   /** Set to "dark" when the button sits on the dark CTA band, so the note stays readable. */
   tone?: "light" | "dark";
+  placement?: string
 }) {
   const button = (
     <CtaButton
@@ -40,6 +44,7 @@ export default function AppStoreButton({
       size={size}
       variant={variant}
       className={className}
+      onClick={()=>track("app_store_button_click", { placement })}
       aria-label={
         PUBLISHED
           ? `Download ${SITE_NAME} on the App Store`

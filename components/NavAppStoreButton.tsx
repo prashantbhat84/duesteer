@@ -21,5 +21,5 @@ export default function NavAppStoreButton(
     return null;
   }
 
-  return <AppStoreButton {...props} />;
+  return <AppStoreButton {...props} placement={"navbar"} />;
 }

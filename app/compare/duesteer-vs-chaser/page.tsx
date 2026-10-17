@@ -606,7 +606,7 @@ export default function DuesteerVsChaserComparison() {
                 provides a guided recovery workflow on iPhone and iPad.
               </p>
               <div className="mt-5">
-                <AppStoreButton size="lg" />
+                <AppStoreButton size="lg" placement="comparison_chaser" />
               </div>
             </div>
 

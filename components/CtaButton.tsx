@@ -45,6 +45,7 @@ type CtaButtonProps = {
   disabled?: boolean;
   className?: string;
   "aria-label"?: string;
+  onClick?: () => void;
 };
 
 /**
@@ -59,6 +60,7 @@ export default function CtaButton({
   external = false,
   disabled = false,
   className = "",
+  onClick = () => {},
   ...rest
 }: CtaButtonProps) {
   const classes = ctaButtonClassName(variant, size, className);

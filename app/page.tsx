@@ -56,7 +56,7 @@ export default function HomePage() {
               payment follow-ups without damaging client relationships.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-start">
-              <AppStoreButton size="lg" />
+              <AppStoreButton size="lg" placement="home" />
               <CtaButton href="#how-it-works" variant="secondary" size="lg">
                 See how it works
               </CtaButton>
@@ -279,7 +279,7 @@ export default function HomePage() {
             description={`Manage up to ${PRICING.freeInvoiceLimit} invoices.`}
             features={[...PLAN_FEATURES.free]}
             cta={
-              <AppStoreButton variant="secondary" className="w-full" />
+              <AppStoreButton variant="secondary" className="w-full" placement="pricing_free" />
             }
           />
           <PricingCard
@@ -302,7 +302,7 @@ export default function HomePage() {
               "Everything in Premium Monthly",
               "Best value for regular invoicing",
             ]}
-            cta={<AppStoreButton variant="secondary" className="w-full" />}
+            cta={<AppStoreButton variant="secondary" className="w-full" placement="pricing_yearly" />}
           />
         </div>
         <p className="mt-8 text-sm leading-relaxed text-muted">
@@ -347,7 +347,7 @@ export default function HomePage() {
             recover late payments with a process you can trust.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-start">
-            <AppStoreButton size="lg" tone="dark" />
+            <AppStoreButton size="lg" tone="dark" placement="home_footer" />
             <CtaButton href="/features" variant="secondary" size="lg">
               Explore Duesteer features
             </CtaButton>

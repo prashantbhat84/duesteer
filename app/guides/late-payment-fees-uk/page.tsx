@@ -460,7 +460,7 @@ export default function LatePaymentFeesUkGuide() {
                 process, and keep the full history in one place.
               </p>
               <div className="mt-5">
-                <AppStoreButton size="lg" />
+                <AppStoreButton size="lg" placement="late_payment_fees" />
               </div>
             </div>
 

@@ -197,7 +197,7 @@ export default function FeaturesPage() {
           align="center"
         />
         <div className="mt-8 flex justify-center">
-          <AppStoreButton size="lg" />
+          <AppStoreButton size="lg" placement="features" />
         </div>
       </Section>
 

@@ -54,7 +54,7 @@ export default function PricingPage() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <AppStoreButton size="lg" />
+          <AppStoreButton size="lg" placement="pricing_premium" />
         </div>
       </Section>
 

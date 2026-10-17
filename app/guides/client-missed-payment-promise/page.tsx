@@ -342,7 +342,7 @@ export default function ClientMissedPaymentPromiseGuide() {
                 happened and decide what should come next.
               </p>
               <div className="mt-5">
-                <AppStoreButton size="lg" />
+                <AppStoreButton size="lg" placement="missed_payment" />
               </div>
             </div>
 

@@ -9,7 +9,7 @@
  * CTA renders an enabled "Download on the App Store" state. If the listing URL
  * ever changes, update it here — nothing else needs to change.
  */
-export const APP_STORE_URL = "https://apps.apple.com/app/duesteer-invoice-recovery/id6778435778";
+export const APP_STORE_URL = "https://apps.apple.com/app/duesteer-invoice-recovery/id6778435778?ct=website";
 
 /** Canonical production URL for the marketing site (update at launch). */
 export const SITE_URL = "https://duesteer.app";

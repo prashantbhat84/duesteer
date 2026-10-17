@@ -76,7 +76,7 @@ export default function ResourcesPage() {
             stage.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <AppStoreButton />
+            <AppStoreButton placement="resources" />
             <CtaButton href="/features" variant="secondary">
               See the features
             </CtaButton>

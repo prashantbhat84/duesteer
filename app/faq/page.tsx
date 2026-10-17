@@ -56,7 +56,7 @@ export default function FaqPage() {
             <CtaButton href="/support" variant="secondary">
               Visit support
             </CtaButton>
-            <AppStoreButton />
+            <AppStoreButton placement="faq" />
           </div>
         </div>
       </Section>

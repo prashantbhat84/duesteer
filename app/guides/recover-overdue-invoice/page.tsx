@@ -388,7 +388,7 @@ export default function RecoverOverdueInvoiceGuide() {
                 process, and keep the full history in one place.
               </p>
               <div className="mt-5">
-                <AppStoreButton size="lg" />
+                <AppStoreButton size="lg" placement="recover_overdue_invoice" />
               </div>
             </div>
 

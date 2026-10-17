@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Faq } from "@/lib/content";
 
 /**
@@ -46,6 +47,17 @@ export default function FaqAccordion({
           <div className="px-5 pb-5 sm:px-6">
             <p className="max-w-2xl text-sm leading-relaxed text-body">
               {item.answer}
+              {item.link ? (
+                <>
+                  {" "}
+                  <Link
+                    href={item.link.href}
+                    className="font-medium text-brand-strong underline decoration-brand-line underline-offset-2 hover:decoration-brand"
+                  >
+                    {item.link.label}
+                  </Link>
+                </>
+              ) : null}
             </p>
           </div>
         </details>
